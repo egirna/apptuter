@@ -1,0 +1,25 @@
+﻿div {
+  color: #242d33;
+}
+span {
+  color: #090c0d;
+}
+a {
+  color: #2a343b;
+}
+label {
+  color: #ebeff1;
+}
+hr {
+  color: #3f4f5a;
+}
+p {
+  color: #93a6b3;
+}
+a:hover {
+  background: rgba(0, 213, 255, 0.3);
+}
+a {
+  display: none;
+}
+/*# sourceMappingURL=test.css.map */

@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../FireFox_OS_FramWork/style/action_menu.css" rel="stylesheet" />
+    <link href="../FireFox_OS_FramWork/style/buttons.css" rel="stylesheet" />
+    <link href="../FireFox_OS_FramWork/style/drawer.css" rel="stylesheet" />
+    <link href="../FireFox_OS_FramWork/style/headers.css" rel="stylesheet" />
+    <link href="../FireFox_OS_FramWork/fonts.css" rel="stylesheet" />
+    <link href="../FireFox_OS_FramWork/style/lists.css" rel="stylesheet" />
+    <link href="../FireFox_OS_FramWork/util.css" rel="stylesheet" />
+    <link href="../FireFox_OS_FramWork/complete.css" rel="stylesheet" />
+    <link href="../FireFox_OS_FramWork/transitions.css" rel="stylesheet" />
+    <link href="../FireFox_OS_FramWork/cross_browser.css" rel="stylesheet" />
+    <link href="../FireFox_OS_FramWork/style/switches.css" rel="stylesheet" />
+    <link href="../FireFox_OS_FramWork/style/progress_activity.css" rel="stylesheet">
+    <link href="../FireFox_OS_FramWork/style/status.css" rel="stylesheet">
+    <link href="../FireFox_OS_FramWork/style/input_areas.css" rel="stylesheet" type="text/css">
+    <link href="../FireFox_OS_FramWork/icons/styles/action_icons.css" rel="stylesheet" type="text/css">
+
+
+    <script src="../js/jquery-v1.11.js"></script> 
+    <script src="index.js"></script>
+   <style>
+       form{
+           margin:2rem;
+       }
+       label{
+           font-size:2.5rem;
+       }
+       input{
+           margin-bottom:3rem
+       }
+       #index{
+  border-radius: 4px;
+  background: #f5f5f5;
+  margin: 3%;
+  overflow: hidden;
+  box-shadow: 0 1px 7px 1px rgba(121, 121, 121, 0.5);
+  height:95%;
+       }
+       #instructions{
+           font-size:2rem;
+           margin:1rem
+       }
+   </style>
+
+
+</head>
+<body>
+    <!--Start Index-->
+    <section id="index" data-position="current" class="skin-dark">
+        <!--Start Drawer-->
+        <section id="drawer" role="region">
+            <!--FB Fan page Setting-->
+            <article class="scrollable header">
+                <!--Progress & alerts DOM Elements-->
+                <progress></progress>
+                <section role="status">
+                    <p></p>
+                    <button class="danger">OK</button>
+                </section>
+                <form>
+                        <label>Facebook.com/</label>
+                        <section>
+                            <p>
+                                <input type="text" id="txt_pagename" placeholder="Page Name" required="">
+                                <button class="action-icon settings" id="saveSetting">Save</button>
+                            </p>
+                        </section>
+                </form>
+                <section id="instructions">
+                    <p><span style="color:red">*  </span>If the page is not configured with a username you will need to input its numerical ID.</p>
+                </section>
+            </article>
+        </section>
+        <!-- End drawer -->
+        
+    </section>
+    <!-- End index -->
+
+</body>
+</html>

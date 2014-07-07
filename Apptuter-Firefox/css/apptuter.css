@@ -1,0 +1,257 @@
+﻿/********************************* General Classes *********************************/
+body,
+div,
+span,
+a,
+p,
+button,
+table,
+section,
+article,
+menu,
+header,
+nav,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /*-webkit-text-stroke: 0.02rem #000;*/
+  -webkit-font-smoothing: antialiased;
+}
+section,
+article {
+  background: #ebf0f3;
+}
+a,
+a label {
+  cursor: pointer;
+}
+.pullR {
+  float: right;
+}
+.pullL {
+  float: left;
+}
+.middle {
+  vertical-align: middle;
+}
+.mr10 {
+  margin-right: 1rem;
+}
+.clearfix:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+.clearfix {
+  display: inline-block;
+}
+/**************** Start Variables ****************/
+/* Header Background, Side Bar Background */
+/* Border Bottom Color */
+/* Border Top Color */
+/* Notification Text Color */
+/* Container Background Color */
+/* Border color on dark background */
+/* Text Color on dark background */
+/* Link Background Color */
+/* Active Link Press Background */
+/* Border bottom on light background */
+/* Link Hover Background */
+/**************** End Variables ****************/
+/**************** Start Mixins ****************/
+/**************** End Mixins ****************/
+/***************************************************************************************************/
+/********************************* Start Header *********************************/
+/* Close Button */
+menu .closeBtn {
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDMwIDMwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCI+PHBhdGggb3BhY2l0eT0iLjQiIGQ9Ik0xNSA2LjVjNC42OTQgMCA4LjUgMy44MDYgOC41IDguNXMtMy44MDYgOC41LTguNSA4LjVjLTQuNjk1IDAtOC41LTMuODA2LTguNS04LjVzMy44MDUtOC41IDguNS04LjV6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTEzLjE1NCAxNC41ODNsLTIuNTY2LTIuNTY2Yy4xOTYtLjc0LjQ3OS0xLjQuODA1LTEuOTk4bDMuNTkzIDMuNTk0IDMuNTgyLTMuNTg0Yy4zMjQuNi42MDYgMS4yNjEuODAyIDIuMDAxbC0yLjU1MyAyLjU1NC0uMDE1LjAxMWMtLjIwOS4yMS0uMjEzLjU0NC0uMDIuNzYxbC0uMDAxLjAwMyAyLjU4OCAyLjU4OGMtLjE5Ni43MzktLjQ3OCAxLjM5OC0uODAyIDEuOTk3bC0zLjU4Mi0zLjU4Mi0zLjU5NCAzLjU5NGMtLjMyNS0uNTk4LS42MDYtMS4yNTYtLjgwMy0xLjk5NmwyLjYwMS0yLjYwMS0uMDAyLS4wMDNjLjE5NC0uMjE3LjE4OC0uNTUxLS4wMjEtLjc2MWwtLjAxMi0uMDEyeiIvPjwvZz48L3N2Zz4=') no-repeat center !important;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  -webkit-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+  -moz-background-size: 63% !important;
+  background-size: 63% !important;
+  min-width: 2rem !important;
+}
+/* Header Background */
+section[role="region"].skin-dark > header:first-child,
+.skin-dark > section[role="region"] > header:first-child {
+  background: #242d33;
+}
+/* change close button on active state */
+menu .closeBtn:active {
+  background-color: #00ABCC !important;
+}
+/* Change Menu buttons background on active state */
+menu[type="toolbar"] button:active {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+/* Change padding of the Menu anchors */
+section[data-type="sidebar"] > header menu[type="toolbar"] a,
+section[data-type="sidebar"] > header menu[type="toolbar"] button {
+  padding: 0 2.75rem !important;
+}
+/* Make back buttons on top */
+.linkBtn {
+  z-index: 1000 !important;
+}
+.linkBtn:active {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
+/* Remove hover from after elements */
+section[role="region"] > header:first-child > a:not([aria-disabled="true"]):active:after,
+section[role="region"] > header:first-child > button:not(:disabled):active:after,
+section[role="region"] > header:first-child > a:not([aria-disabled="true"]):hover:after,
+section[role="region"] > header:first-child > button:not(:disabled):hover:after {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+/* Change Sub title Color in Side Bar */
+section[data-type="sidebar"] > nav > h2 {
+  color: #6d8798;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0.1rem 0.5rem rgba(0, 0, 0, 0.1);
+  border-bottom: 0.1rem solid #0a0f13;
+  border-top: 0.1rem solid #2a343a;
+  font-size: 1.9rem;
+  line-height: 4.5rem;
+}
+/* Decrease Theme icon size */
+section[data-type="sidebar"] h2 .glyphicon-leaf:before {
+  font-size: 1.7rem !important;
+  color: #6d8798;
+  /*text-shadow: 0.1rem 0.1rem 0.45rem rgba(0,0,0,1);*/
+}
+/* Make Label in Side Bar with Block Display */
+label.pack-checkbox,
+label.pack-radio,
+label.pack-switch {
+  display: block;
+}
+/********************************* End Header *********************************/
+/* Start Sections */
+section[role="region"] {
+  -moz-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  -o-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  -webkit-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+[data-type="list"] li p,
+[data-type="list"] li p:first-of-type {
+  padding-left: 3.5rem !important;
+}
+[data-type="list"] li {
+  border-bottom: 0.1rem solid #c5d0d6;
+}
+/* Start SideBar */
+/* Add box-shadow instead of the oridnary background */
+section[data-type="sidebar"] {
+  box-shadow: inset -1rem 0 1rem -0.5rem rgba(0, 0, 0, 0.5);
+  background: #242d33;
+}
+/* Add top box shadow instead of the ordinary background */
+section[data-type="sidebar"] > header {
+  /*box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,0.5);*/
+  border-bottom: 0.1rem solid #151b1f;
+}
+/* Restyle borders of side bar items */
+section[data-type="sidebar"] > nav > ul > li > a {
+  border-bottom: 0.1rem solid #151b1f;
+  border-top: 0.1rem solid #2e3941;
+  padding: 0;
+}
+/* Reposition Radio buttons in Side Bar */
+label.pack-checkbox input ~ span:after,
+label.pack-radio input ~ span:after {
+  right: 3rem;
+}
+/* End SideBar */
+/* Start App Info */
+.appInfoWrapper {
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.2rem 0.4rem -0.2rem rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+.appInfoWrapper .imgCont {
+  height: 17rem;
+  background: #242D33;
+  text-align: center;
+}
+.appInfoWrapper .imgCont .imgSrc {
+  display: inline-block;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  border: 0.2rem solid #242D33;
+  box-shadow: 0 0 0 0.5rem #3f4f5a;
+  margin-top: 3rem;
+}
+.appInfoWrapper .imgCont .fbTitle {
+  color: #93a1aa;
+  line-height: 3rem;
+  margin-top: 1rem;
+}
+.appInfoWrapper article.infoText {
+  background: #fff;
+  color: #555;
+  padding: 0;
+}
+.appInfoWrapper article.infoText > p {
+  padding: 1.5rem;
+}
+.appInfoWrapper article.infoText .pageLink {
+  display: block;
+  text-align: center;
+  margin: 0.7rem 0 0 0;
+  background: #00aacc;
+  color: #fff;
+  text-decoration: none;
+}
+.appInfoWrapper article.infoText .pageLink:active {
+  background: #009ebd;
+  box-shadow: inset 0 0.2rem 0.5rem -0.1rem rgba(0, 0, 0, 0.1);
+}
+.appInfoWrapper article.infoText .pageLink p {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+/* End App Info */
+/* End Sections */
+/* Custom Styles */
+header h1 {
+  position: relative !important;
+  display: inline-block !important;
+  overflow: visible !important;
+}
+.pushNtf {
+  display: block;
+  padding: 0.1rem 0.5rem;
+  min-width: 3.2rem;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0.1rem 0.1rem 0.3rem rgba(0, 0, 0, 0.9), 0.1rem 0.1rem 0.1rem rgba(255, 255, 255, 0.15);
+  margin: 0.7rem 0 0 1rem;
+  border-radius: 3rem;
+  color: #00d5ff;
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: normal;
+  line-height: 1.7;
+}
+/*directions*/
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+.ltr {
+  direction: ltr;
+  text-align: left;
+}
+#pageName {
+  width: 15rem;
+}
+/*# sourceMappingURL=apptuter.css.map */

@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <!--<link href="css/jquery.mobile-1.3.2.min.css" rel="stylesheet" />-->
+    <link href="css/reset.css" rel="stylesheet" />
+    <link href="FireFox_OS_FramWork/style/action_menu.css" rel="stylesheet" />
+    <link href="FireFox_OS_FramWork/style/buttons.css" rel="stylesheet" />
+    <link href="FireFox_OS_FramWork/style/drawer.css" rel="stylesheet" />
+    <link href="FireFox_OS_FramWork/style/headers.css" rel="stylesheet" />
+    <link href="FireFox_OS_FramWork/fonts.css" rel="stylesheet" />
+    <link href="FireFox_OS_FramWork/style/lists.css" rel="stylesheet" />
+    <link href="FireFox_OS_FramWork/util.css" rel="stylesheet" />
+    <link href="FireFox_OS_FramWork/complete.css" rel="stylesheet" />
+    <link href="FireFox_OS_FramWork/transitions.css" rel="stylesheet" />
+    <link href="FireFox_OS_FramWork/cross_browser.css" rel="stylesheet" />
+    <link href="FireFox_OS_FramWork/style/switches.css" rel="stylesheet" />
+    <link href="FireFox_OS_FramWork/style/progress_activity.css" rel="stylesheet">
+    <link href="FireFox_OS_FramWork/style/status.css" rel="stylesheet">
+    <link href="FireFox_OS_FramWork/style/confirm.css" rel="stylesheet">
+    <link href="css/blue.css" rel="stylesheet" />
+
+
+    <link href="css/glyphicons.css" rel="stylesheet" />
+    <link href="css/apptuter.css" rel="stylesheet" />
+    <script src="js/jquery-v1.11.js"></script>
+    <script type="text/javascript" src="js/iscroll.js"></script>
+    <!--<script src="js/jquery.mobile-1.3.2.min.js"></script>-->
+    <!--  -->
+    <script src="js/action_menu.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/seekbars.js"></script>
+    <script src="js/status.js"></script>
+    <script src="js/Info.js"></script>
+    <script src="js/Posts.js"></script>
+    <script src="js/CheckConnection.js"></script>
+    <script src="js/Refresh.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/moment-with-langs.min.js"></script>
+
+
+</head>
+<body>
+    <!--Start Index-->
+    <section id="index" data-position="current" class="skin-dark">
+
+        <!--Start Side Bar-->
+        <section data-type="sidebar">
+            <header>
+                <menu type="toolbar">
+                    <a href="#" class="closeBtn"></a>
+                </menu>
+                <h1>Settings</h1>
+            </header>
+            <nav>
+                <h2>
+                    <i class="glyphicon glyphicon-leaf middle mr10"></i>App Theme
+                </h2>
+                <ul>
+                    <li>
+                        <a>
+                            <label class="pack-radio">
+                                <span class="itemText">Default Theme</span>
+                                <input type="radio" name="theme" checked="checked">
+                                <span></span>
+                            </label>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <label class="pack-radio">
+                                <span class="itemText">Yellow Theme</span>
+                                <input type="radio" name="theme">
+                                <span></span>
+                            </label>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+        <!--End Side Bar-->
+        <!--Start Drawer-->
+        <section id="drawer" role="region">
+            <header class="fixed">
+                <menu type="toolbar">
+                    <a id="btn-refresh" class="linkBtn" href="">
+                        <i class="glyphicon glyphicon-refresh">refresh</i>
+                    </a>
+                    <a id="btn-showInfo" class="linkBtn" href="#">
+                        <i class="glyphicon glyphicon-pencil">info</i>
+                    </a>
+                </menu>
+                <a id="btn-home-back" class="linkBtn" href="">
+                    <span class="icon icon-back">back</span>
+                </a>
+                <!--<a href="#" class="toggleMenuBtn linkBtn">
+                    <i class="icon icon-menu">hide sidebar</i>
+                </a>
+                <a href="#drawer" class="toggleMenuBtn linkBtn">
+                    <i class="icon icon-menu">show sidebar</i>
+                </a>-->
+                <h1>
+                    <span id="pageName" class="pageTitle pullL"></span>
+                    <!--<i class="pushNtf pullR">50</i>-->
+                </h1>
+            </header>
+            <!--Posts-->
+            <article class="scrollable header">
+                <div data-type="list">
+                    <!--Progress & alerts DOM Elements-->
+                    <progress></progress>
+                    <section role="status">
+                        <p></p>
+                        <button class="danger">OK</button>
+                    </section>
+                    <!--Posts Container-->
+                    <div class="homeContent tabContainer">
+                    <div id="postsWrapper">
+                        <div id="posts">
+                        </div>
+                    </div>
+                    <div id='morediv'>
+                        <div class='bgLayer'></div>
+                    </div>
+                </div>
+                </div>
+            </article>
+        </section>
+        <!-- End drawer -->
+    </section>
+    <!-- End index -->
+    <!-- Start App Info-->
+    <section class="skin-dark" role="region" id="appInfo" data-position="right">
+        <header class="fixed">
+            <a id="btn-info-back" class="linkBtn" href="#">
+                <span class="icon icon-back">back</span>
+            </a>
+            <h1>App Info</h1>
+        </header>
+        <article class="content scrollable header">
+            <div class="appInfoWrapper">
+                <div class="imgCont">
+                    <img class="imgSrc"/>
+                    <p class="fbTitle"></p>
+                </div>
+                <div class='location'>
+                    <img src="" />
+                </div>
+                <article class="content infoText">
+                    <p id="description">
+                    </p>
+                    <a href="#" class="pageLink">
+                        <i class="glyphicon glyphicon-globe middle"></i>
+                        <p></p>
+                    </a>
+                </article>
+            </div>
+        </article>
+    </section>
+    <!--End App Info-->
+
+</body>
+</html>
