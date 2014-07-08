@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.pushapps.phonegap"
+    version="1.0.0">
+    
+    <name>PushApps - Push Notification Plugin</name>
+    
+    <description>PushApps Push Notification Plugin for PhoneGap/Cordova</description>
+    
+    <author>PushApps</author>
+    
+    <keywords>pushapps,push,notification,pushnotification</keywords>
+    
+    <license>Apache 2.0 License</license>
+    
+    <engines>
+        <engine name="cordova" version=">=3.1.0" />
+    </engines>
+    
+    <js-module src="www/pushapps.js" name="PushApps">
+        <clobbers target="PushNotification" />
+    </js-module>
+    
+    <config-file>
+        <access origin="*.pushapps.mobi" />
+    </config-file>
+    
+    <!-- android -->
+    <platform name="android">
+        
+        <config-file target="res/xml/config.xml" parent="/widget">
+            <feature name="PushAppsPlugin">
+                <param name="android-package" value="com.pushapps.phonegap.PushAppsPlugin"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.VIBRATE" />
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+            <uses-permission android:name="android.permission.WAKE_LOCK" />
+            <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+            <uses-permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE" />
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <receiver
+                android:name="com.groboot.pushapps.GCMBroadcastReceiver"
+                android:permission="com.google.android.c2dm.permission.SEND" >
+                <intent-filter>
+                    <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                    
+                    <category android:name="$PACKAGE_NAME" />
+                </intent-filter>
+            </receiver>
+            
+            <service android:name="com.groboot.pushapps.GCMBaseIntentServiceImpl" />
+            
+            <activity
+            android:name="com.groboot.pushapps.PushActivity"
+            android:configChanges="orientation|keyboardHidden" />
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest/application/activity">
+            <intent-filter>
+                <action android:name="$PACKAGE_NAME.MESSAGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </config-file>
+        
+        <!-- PushApps library -->
+        <source-file src="src/android/PushAppsPlugin.java" target-dir="src/com/pushapps/phonegap" />
+        <source-file src="src/android/pushapps.jar" target-dir="libs/" />
+    </platform>
+    
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="PushAppsPlugin">
+                <param name="ios-package" value="CDVPushApps" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        
+        <header-file src="src/ios/CDVPushApps.h" />
+        <source-file src="src/ios/CDVPushApps.m" />
+        
+        <!-- PushApps framework -->
+        <header-file src="src/ios/PushApps/Headers/PushApps.h"  />
+        <header-file src="src/ios/PushApps/Headers/PushAppsManager.h"  />
+        <source-file src="src/ios/PushApps/libPushApps.a" framework="true"/>
+        
+        <!-- system frameworks -->
+        <framework src="AdSupport.framework" weak="true" />
+        <framework src="Foundation.framework" weak="true" />
+        <framework src="UIKit.framework" weak="true" />
+    </platform>
+
+</plugin>
