@@ -17,7 +17,7 @@ Apptuter is a framework to produce mobile apps out of social media content, curr
 
 # <a name="license"></a>License
 * Copyright 2014 Egirna Technologies Limited.
-* Licensed under the [Apache License, Version 2.0](http://http://opensource.org/licenses/Apache-2.0)
+* Licensed under the [Apache License, Version 2.0](http://opensource.org/licenses/Apache-2.0)
 
 
 
