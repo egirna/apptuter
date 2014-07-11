@@ -27,7 +27,7 @@ Apptuter app, is a demo version produced by Apptuter framework, instead of being
 
 # <a name="support"></a>Support
 *  You may use [Repository issues section](https://github.com/egirna/apptuter/issues) for all of your queries and comments .
-*  You can email us as well: [support.team@egirna.com](support.team@egirna.com)
+*  You can email us as well: [support.team@egirna.com](mailto:support.team@egirna.com)
 * Commercial support including compiling, packaging, custom development and push notifications integration is available at our commercial website: [apptuter.com](http://www.apptuter.com)
 
 # <a name="license"></a>License
