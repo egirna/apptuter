@@ -10,6 +10,7 @@ Apptuter is a framework to produce mobile apps out of social media content, curr
  
 * [Features](#features)
 * [Demo](#demo)
+* [Support](#support)
 * [License](#license)
  
 # <a name="features"></a>Features
@@ -24,6 +25,10 @@ Apptuter app, is a demo version produced by Apptuter framework, instead of being
 * For Firefox OS: [Firefox marketplace](https://marketplace.firefox.com/app/apptuter).
 * Online emulator version available at our commercial support website [apptuter.com](http://www.apptuter.com), please note that there is a limitation on number of concurrent sessions running.
 
+# <a name="support"></a>Support
+*  You may use [Repository issues section](https://github.com/egirna/apptuter/issues) for all of your queries and comments .
+*  You can email us as well: [support.team@egirna.com](support.team@egirna.com)
+* Commercial support including compiling, packaging, custom development and push notifications integration is available at our commercial website: [apptuter.com](http://www.apptuter.com)
 
 # <a name="license"></a>License
 * Copyright 2014 [Egirna Technologies Limited](http://www.egirna.com).
