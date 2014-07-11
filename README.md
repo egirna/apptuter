@@ -19,7 +19,7 @@ Apptuter is a framework to produce mobile apps out of social media content, curr
 * "Real time updates" Your app users can sync the app with your latest posts.
 
 # <a name="demo"></a>Demo
-## Apptuter app, is a demo version produced by Apptuter framework, instead of being hardcoded to specific Facebook page, it allows you to do a live test of the framework features, apptuter app can be found at:
+### Apptuter app, is a demo version produced by Apptuter framework, instead of being hardcoded to specific Facebook page, it allows you to do a live test of the framework features, apptuter app can be found at:
 * For Android: [Google play](https://play.google.com/store/apps/details?id=com.apptuter).
 * For Firefox OS: [Firefox marketplace](https://marketplace.firefox.com/app/apptuter).
 * Online emulator version available at our commercial support website [apptuter.com](http://www.apptuter.com), please note that there is a limitation on number of concurrent sessions running.
