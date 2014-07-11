@@ -23,7 +23,7 @@ Apptuter is a framework to produce mobile apps out of social media content, curr
 Apptuter app, is a demo version produced by Apptuter framework, instead of being hardcoded to specific Facebook page, it allows you to do a live test of the framework features, apptuter app can be found at:
 * For Android: [Google play](https://play.google.com/store/apps/details?id=com.apptuter).
 * For Firefox OS: [Firefox marketplace](https://marketplace.firefox.com/app/apptuter).
-* Online emulator version available at our commercial support website [apptuter.com](http://www.apptuter.com), please note that there is a limitation on number of concurrent sessions running.
+* Online emulator version available at our commercial support website [apptuter.com](http://www.apptuter.com), please note that there is a limitation on number of concurrent emulator sessions running.
 
 # <a name="support"></a>Support
 *  You may use [Repository issues section](https://github.com/egirna/apptuter/issues) for all of your queries and comments .
