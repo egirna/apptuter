@@ -10,6 +10,7 @@ Apptuter is a framework to produce mobile apps out of social media content, curr
  
 * [Features](#features)
 * [Demo](#demo)
+* [Documentation](#documentation)
 * [Support](#support)
 * [License](#license)
  
@@ -29,6 +30,9 @@ Apptuter app, is a demo version produced by Apptuter framework, instead of being
   <img src="https://raw.github.com/egirna/apptuter/master/artwork/apptuteremu.png" alt="Apptuter emulator screenshot"/>
 </p>
 
+# <a name="documentation"></a>Documentation
+*  Please visit our [Wiki section](https://github.com/egirna/apptuter/wiki) for documentation.
+*  You can download our [Getting Started](https://raw.github.com/egirna/apptuter/master/docs/getting-started.png) guide as well in PDF format.
 
 # <a name="support"></a>Support
 *  You may use [Repository issues section](https://github.com/egirna/apptuter/issues) for all of your queries and comments .
