@@ -3,7 +3,7 @@
 Apptuter is a framework to produce mobile apps out of social media content, currently supporting generating apps out of Facebook public pages content and can produce apps for Android and Firefox OS.
 
 <p align="center">
-  <img src="https://raw.github.com/egirna/apptuter/master/artwork/facebook-apptuter.png" alt="Sublime's custom image"/>
+  <img src="https://raw.github.com/egirna/apptuter/master/artwork/facebook-apptuter.png" alt="Facebook page to app"/>
 </p>
 
 # Table of Contents
@@ -24,6 +24,11 @@ Apptuter app, is a demo version produced by Apptuter framework, instead of being
 * For Android: [Google play](https://play.google.com/store/apps/details?id=com.apptuter).
 * For Firefox OS: [Firefox marketplace](https://marketplace.firefox.com/app/apptuter).
 * Online emulator version available at our commercial support website [apptuter.com](http://www.apptuter.com), please note that there is a limitation on number of concurrent emulator sessions running.
+
+<p align="center">
+  <img src="https://raw.github.com/egirna/apptuter/master/artwork/apptuteremu.png" alt="Apptuter emulator screenshot"/>
+</p>
+
 
 # <a name="support"></a>Support
 *  You may use [Repository issues section](https://github.com/egirna/apptuter/issues) for all of your queries and comments .
