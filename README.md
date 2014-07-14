@@ -9,16 +9,23 @@ Apptuter is a framework to produce mobile apps out of social media content, curr
 # Table of Contents
  
 * [Features](#features)
+* [Motivation](#motivation)
 * [Demo](#demo)
 * [Documentation](#documentation)
 * [Support](#support)
 * [License](#license)
  
 # <a name="features"></a>Features
+* "Stand alone mobile app" keep your social media customers or fans connected and reachable. 
+* "Push Notifications" Let your users aware of your important announcements.
 * "Offline browsing" No network? No problem, the content is cached!
 * "Hash commands" Utilize specialized hashtags to control the content format and appearance.
 * "Themes selection" Attractive color schemes, and willing to add your favourite one.
 * "Real time updates" Your app users can sync the app with your latest posts.
+* "Platform support" Works with Android version 3.0+ and Firefox OS. And more platforms support to come!
+
+# <a name="motivation"></a>Motivation
+
 
 # <a name="demo"></a>Demo
 Apptuter app, is a demo version produced by Apptuter framework, instead of being hardcoded to specific Facebook page, it allows you to do a live test of the framework features, apptuter app can be found at:
