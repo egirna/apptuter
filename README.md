@@ -13,7 +13,7 @@ Apptuter is a framework to produce mobile apps out of social media content, curr
 * [Demo](#demo)
 * [Documentation](#documentation)
 * [Support](#support)
-* [Work in progess](#workinprogress)
+* [Work in progress](#workinprogress)
 * [License](#license)
  
 # <a name="features"></a>Features
