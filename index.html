@@ -1,45 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Apptuter by egirna</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
     <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+    <title>Apptuter by egirna</title>
   </head>
+
   <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/egirna/apptuter">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/egirna/apptuter/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/egirna/apptuter/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
+    <div id="container">
+      <div class="inner">
 
-    <div class="wrapper">
-
-      <section>
-        <div id="title">
+        <header>
           <h1>Apptuter</h1>
-          <p></p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/egirna">egirna</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
-        </div>
+          <h2></h2>
+        </header>
 
-        <h1>
-<a name="" class="anchor" href="#"><span class="octicon octicon-link"></span></a><img src="https://raw.github.com/egirna/apptuter/master/artwork/logo.png" alt="alt tag">
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/egirna/apptuter/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/egirna/apptuter/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/egirna/apptuter" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="" class="anchor" href="#"><span class="octicon octicon-link"></span></a><img src="https://raw.github.com/egirna/apptuter/master/artwork/apptuter-logo.png" alt="alt tag">
 </h1>
 
 <p>Apptuter is a framework to produce mobile apps out of social media content, currently supporting generating apps out of Facebook public pages content and can produce apps for Android and Firefox OS.</p>
@@ -52,19 +45,29 @@
 
 <ul>
 <li><a href="#features">Features</a></li>
+<li><a href="#motivation">Motivation</a></li>
 <li><a href="#demo">Demo</a></li>
+<li><a href="#documentation">Documentation</a></li>
 <li><a href="#support">Support</a></li>
+<li><a href="#workinprogress">Work in progess</a></li>
 <li><a href="#license">License</a></li>
 </ul><h1>
 <a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>
 <a name="features"></a>Features</h1>
 
 <ul>
+<li>"Stand alone mobile app" keep your social media customers or fans connected and reachable. </li>
+<li>"Push Notifications" Let your users aware of your important announcements.</li>
 <li>"Offline browsing" No network? No problem, the content is cached!</li>
 <li>"Hash commands" Utilize specialized hashtags to control the content format and appearance.</li>
 <li>"Themes selection" Attractive color schemes, and willing to add your favourite one.</li>
 <li>"Real time updates" Your app users can sync the app with your latest posts.</li>
+<li>"Platform support" Works with Android version 3.0+ and Firefox OS. And more platforms support to come!</li>
 </ul><h1>
+<a name="motivation" class="anchor" href="#motivation"><span class="octicon octicon-link"></span></a>
+<a name="motivation"></a>Motivation</h1>
+
+<h1>
 <a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>
 <a name="demo"></a>Demo</h1>
 
@@ -78,6 +81,13 @@
   <img src="https://raw.github.com/egirna/apptuter/master/artwork/apptuteremu.png" alt="Apptuter emulator screenshot"></p>
 
 <h1>
+<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>
+<a name="documentation"></a>Documentation</h1>
+
+<ul>
+<li> Please visit our <a href="https://github.com/egirna/apptuter/wiki">Wiki section</a> for documentation.</li>
+<li> You can download our <a href="https://raw.github.com/egirna/apptuter/master/docs/apptuter-getting-started.pdf">Getting Started</a> guide as well in PDF format.</li>
+</ul><h1>
 <a name="support" class="anchor" href="#support"><span class="octicon octicon-link"></span></a>
 <a name="support"></a>Support</h1>
 
@@ -95,11 +105,14 @@
 <li>Copyright 2014 <a href="http://www.egirna.com">Egirna Technologies Limited</a>.</li>
 <li>Licensed under the <a href="http://opensource.org/licenses/Apache-2.0">Apache License, Version 2.0</a>.</li>
 </ul>
-      </section>
+        </section>
 
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-              <script type="text/javascript">
+        <footer>
+          Apptuter is maintained by <a href="https://github.com/egirna">egirna</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+                  <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -110,5 +123,7 @@
             } catch(err) {}
           </script>
 
+      </div>
+    </div>
   </body>
 </html>
