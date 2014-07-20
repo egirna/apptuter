@@ -12,7 +12,7 @@ $(function () {
     $('progress:not([value])').css('display', 'inline-block');
 
     //getting pageId from localstorage
-    pageID = localStorage.getItem('pageid');
+    //pageID = localStorage.getItem('pageid');
     
     //Creating Main Object
     var Main2 = new Main();

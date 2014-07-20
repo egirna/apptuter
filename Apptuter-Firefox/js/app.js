@@ -13,8 +13,7 @@ $(function () {
 
     /*Return Back to setting screen*/
     $('#btn-home-back').click(function (evt) {
-        evt.preventDefault();
-        window.open("/Shared/index.html","_self",true)
+        window.close();
     })
 
     /*************** End Events Handler ***************/
