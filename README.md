@@ -27,7 +27,7 @@ Apptuter is a framework to produce mobile apps out of social media content, curr
 
 # <a name="purpose"></a>Purpose
 * Providing business owners and interest groups' moderators with easy to use DIY tool to extend their reachability to their customers and fans on mobile devices.
-* Helping web developwers to offer app development to their cusotmer with app development using technologies they are allready familiar with.
+* Helping web developers to offer app development to their cusotmer with app development using technologies they are allready familiar with.
 
 # <a name="demo"></a>Demo
 Apptuter app, is a demo version produced by Apptuter framework, instead of being hardcoded to specific Facebook page, it allows you to do a live test of the framework features, apptuter app can be found at:
