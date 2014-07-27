@@ -17,7 +17,7 @@ Apptuter is a framework to produce mobile apps out of social media content, curr
 * [License](#license)
  
 # <a name="features"></a>Features
-* "Stand alone mobile app" keep your social media customers or fans connected and reachable. 
+* "Stand alone mobile app" keep your social media customers or fans connected and reachable . 
 * "Push Notifications" Let your users aware of your important announcements.
 * "Offline browsing" No network? No problem, the content is cached!
 * "Hash commands" Utilize specialized hashtags to control the content format and appearance.
