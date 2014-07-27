@@ -35,7 +35,6 @@ var infoXHR;
     	//Setting Caching localstorage to true
     	localStorage.setItem('cachingflag','true');
 
-    	pageID=localStorage.getItem('pageid');
     	
     		    // init the FB JS SDK
     		    FB.init({
@@ -112,31 +111,6 @@ var infoXHR;
         		            			  break;
         		            		  }
         		            		 themeChange();
-        		           //change page name
-        		            		 var pageName=$("#txt_pagename").val();
-        		            		 
-        		            		 if(pageName!=''){
-        		     		    	//Creating AJAX Call to assure that page exist.
-        		     		            $.ajax({
-        		     		        url: "https://graph.facebook.com/" + pageName,
-        		     		        dataType: 'jsonp',
-        		     		       success: function(content) {
-        		     		    	   			if(content.id){
-        		     		    	   				localStorage.setItem('pageid',content.id);
-        		     		    	   				//Recalling Methods
-        		     		                    	_THIS.pageName=localStorage.getItem('pageid');
-        		     		                    	_THIS.handleInfoShow();
-        		     		    	   				updateRecords(getDateTime(),pageName,$('input:radio:checked').val());
-        		     		    	   				$('.coverPhoto img').load(function(){
-        		     		    	   				$.mobile.loading( 'hide');
-        		     		    	   				})
-        		     		    	   				
-        		     		    	   			}
-        		     		    	   		else
-        		     			               alert("Please enter a valid Facebook page");
-        		     		       }
-        		     		            });
-        		     		            }
         		        });
         		
         		$('#footer').find('a').click(function(e){e.preventDefault(); window.open($(this).attr('href'), '_system', 'location=yes') })
@@ -148,51 +122,7 @@ var infoXHR;
         		Main2.handleInfoShow();
         }
     };
- 
-//handling saving records of entered pages
- function getDateTime() {
-	    var now     = new Date(); 
-	    var year    = now.getFullYear();
-	    var month   = now.getMonth()+1; 
-	    var day     = now.getDate();
-	    var hour    = now.getHours();
-	    var minute  = now.getMinutes();
-	    var second  = now.getSeconds(); 
-	    if(month.toString().length == 1) {
-	        var month = '0'+month;
-	    }
-	    if(day.toString().length == 1) {
-	        var day = '0'+day;
-	    }   
-	    if(hour.toString().length == 1) {
-	        var hour = '0'+hour;
-	    }
-	    if(minute.toString().length == 1) {
-	        var minute = '0'+minute;
-	    }
-	    if(second.toString().length == 1) {
-	        var second = '0'+second;
-	    }   
-	    var dateTime = year+'/'+month+'/'+day+' '+hour+':'+minute+':'+second;   
-	    return encodeURIComponent(dateTime);  //escaping slash char then decoding it in php
-	}
 
-	function updateRecords(t,n,c){
-		var page_created={};
-	  	 page_created.time=t;
-	  	 page_created.name=n;
-	  	 page_created.theme=c;
-	  	 var jsonObj = JSON.stringify(page_created);
-	       $.ajax({
-	 	        url: "http://apptuter.com/ext/pages_created/index.php",
-	 	        type:'post',
-	 	        datatype:'json',
-	 	        data:jsonObj,
-	 	        success:function(){},
-	 	        error:function(){}
-	    	 });
-		
-	}
      themeChange=function(){
     	//Setting page theme
     	 //firstly removing the old style link

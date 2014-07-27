@@ -33,10 +33,11 @@ public class Apptuter extends CordovaActivity
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         // Set by <content src="index.html" /> in config.xml
         super.loadUrl(Config.getStartUrl());
-        super.loadUrl("file:///android_asset/www/sharedLayer/shared.html");
+       // super.loadUrl("file:///android_asset/www/sharedLayer/shared.html");
+        super.loadUrl("file:///android_asset/www/index.html");
         super.setIntegerProperty("loadUrlTimeoutValue", 60000);
         
-        //super.loadUrl("file:///android_asset/www/index.html")
+       
     }
 }
 

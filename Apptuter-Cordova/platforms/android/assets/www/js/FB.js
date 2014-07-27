@@ -1,5 +1,5 @@
 var Main = function () {
-    this.pageName = pageID;
+    this.pageName = 'PAGE_ID'; //Here you will need to insert your page Id.
     this.src = null;
     this.name = null;
     this.category = null;
