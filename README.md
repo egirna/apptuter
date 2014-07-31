@@ -41,7 +41,7 @@ Apptuter app, is a demo version produced by Apptuter framework, instead of being
 
 # <a name="gettingstarted"></a>Getting started
 *  Please review our [Getting Started for Firefox OS](https://github.com/egirna/apptuter/wiki/Getting-started---Firefox-OS) guide.
-*  Getting started for Android is coming soon!
+*  Please review our [Getting Started for Android](https://github.com/egirna/apptuter/wiki/Getting-started-Android) guide.
 *  Please visit our [Wiki section](https://github.com/egirna/apptuter/wiki) for documentation.
 
 # <a name="support"></a>Support
