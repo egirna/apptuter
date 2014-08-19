@@ -17,7 +17,7 @@ Apptuter is a framework to produce mobile apps out of social media content, curr
 * [License](#license)
  
 # <a name="features"></a>Features
-* "Stand alone mobile app" keep your social media customers or fans connected and reachable. 
+* "Stand alone mobile app" keep your social media customers or fans connected and reachable . 
 * "Push Notifications" Let your users aware of your important announcements.
 * "Offline browsing" No network? No problem, the content is cached!
 * "Hash commands" Utilize specialized hashtags to control the content format and appearance.
@@ -41,11 +41,11 @@ Apptuter app, is a demo version produced by Apptuter framework, instead of being
 
 # <a name="gettingstarted"></a>Getting started
 *  Please review our [Getting Started for Firefox OS](https://github.com/egirna/apptuter/wiki/Getting-started---Firefox-OS) guide.
-*  Getting started for Android is coming soon!
+*  Please review our [Getting Started for Android](https://github.com/egirna/apptuter/wiki/Getting-started-Android) guide.
 *  Please visit our [Wiki section](https://github.com/egirna/apptuter/wiki) for documentation.
 
 # <a name="support"></a>Support
-*  You may use [Repository issues section](https://github.com/egirna/apptuter/issues) for all of your queries and comments .
+*  You may use [Repository issues section](https://github.com/egirna/apptuter/issues) for all of your queries and comments.
 *  You can email us as well: [support.team@egirna.com](mailto:support.team@egirna.com)
 * Commercial support including compiling, packaging, custom development and push notifications integration is available at our commercial website: [apptuter.com](http://www.apptuter.com)
 
