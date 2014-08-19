@@ -55,8 +55,12 @@ Main.prototype.handleInfoShow = function () {
             }
             if(data.website){
             	oInfo.website = data.website;
-                if (!oInfo.website.match('http'))
-                    oInfo.website = 'http://' + oInfo.website;
+            	
+            	if(oInfo.website.match(/\s/g)){
+            		oInfo.website=oInfo.website.split(' ');}
+            	for(var i=0;i<oInfo.website.length;i++)
+                if (!oInfo.website[i].match('http'))
+                    oInfo.website[i] = 'http://' + oInfo.website[i];
             }
             
             _THIS_.infoArray.push(oInfo);

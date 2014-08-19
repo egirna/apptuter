@@ -31,6 +31,9 @@
                 if (item.picture) {
                     opost.pic = item.picture;
                 }
+                if (item.object_id) {
+                    opost.objectId = item.object_id;
+                }
                 if (item.caption) {
                     opost.caption = item.caption;
                 }
@@ -86,6 +89,28 @@
             $('#btn-refresh').click(function (evt) { evt.preventDefault(); });
             $('#btn-showInfo').click(function (evt) { evt.preventDefault(); });
             $('.toggleMenuBtn').click(function (evt) { evt.preventDefault(); });
+
+            //$('#container').css('display', 'none');
+            //$('#page').css('display', 'block');
+
+            //if (localStorage.getItem('cachingflag') == 'true') {
+
+            //    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccessReadPosts, fail);
+            //    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccessReadInfo, fail);
+            //    setTimeout(function () { _THIS_.postArray = storedArray; _THIS_.showPagePosts(); _THIS_.infoArray = infoArray; _THIS_.showPageInfo(); }, 600);
+            //}
+            //else {
+            //    navigator.notification.alert(
+            //            'Caching feature is disabled',  // message
+            //            function () {
+            //                navigator.app.exitApp();
+
+            //            },         // callback
+            //            'Application Cache',            // title
+            //            'OK'                  // buttonName
+            //        );
+            //    setTimeout(function () { navigator.app.exitApp(); }, 900);
+            //}
         }
     });
 }
@@ -93,7 +118,7 @@
 
 
 Main.prototype.showPagePosts = function () {  // This Function handle Showing Page Posts
-    
+
     var _THIS_ = this;
 
     // URL Regural Expression
@@ -141,7 +166,8 @@ Main.prototype.showPagePosts = function () {  // This Function handle Showing Pa
         //checking if the post message contains links.
         //if there link in post message differ than retrieved link object so set link object with this link.
         if (postArrayMessage.match(urlRegex) && this.postArray[i].type != 'video') {
-            this.postArray[i].link = postArrayMessage.match(urlRegex);
+            this.postArray[i].subLinks = postArrayMessage.match(urlRegex);
+
 
             //removing link to avoid duplication with retrieved link object
             postArrayModified = postArrayMessage.replace(urlRegex, '');
@@ -190,11 +216,11 @@ Main.prototype.showPagePosts = function () {  // This Function handle Showing Pa
                     //Detecting Youtube Links
                     var link = new String(this.postArray[i].link);
                     link = link.substring(0, link.indexOf('?'));
-                        if (link.match(/youtube/)) {
-                            this.postArray[i].link= link.replace("/v/", "/watch?v=");
-    
-                        }
-                    
+                    if (link.match(/youtube/)) {
+                        this.postArray[i].link = link.replace("/v/", "/watch?v=");
+
+                    }
+
                     //Setting type of icon ---> link or video
                     $('#postcontainer' + this.counter + '-' + i).find('.postAsset').addClass(this.postArray[i].type).show().find('img').attr('src', url_dec).attr('max-height', $('.postcontainer').width());
                     $('#postcontainer' + this.counter + '-' + i).find('.postAsset img').load(function () {
@@ -210,7 +236,17 @@ Main.prototype.showPagePosts = function () {  // This Function handle Showing Pa
             //Setting Link name & link if exist
             if (this.postArray[i].name) {
                 var link = this.postArray[i].link;
+                if (arabicRegex.test(this.postArray[i].name)) {
+                    $('#postcontainer' + this.counter + '-' + i).find('.postLink').removeClass('ltr').addClass('rtl');
+                }
+               
                 $('#postcontainer' + this.counter + '-' + i).find('.postLink').show().attr('name', this.postArray[i].link).html("<p>" + this.postArray[i].name + "</p>").on('click', function (e) { e.preventDefault(); window.open($(this).attr('name'), '_system', 'location=yes') });
+
+                if (this.postArray[i].subLinks)
+                    //for rest links if post message contains more than one link
+                    for (var j = 1; j < this.postArray[i].subLinks.length; j++) { //listing the rest of links
+                        $('#postcontainer' + this.counter + '-' + i).append('<a target="_blank" class="postLink"></a>').find('.postLink:last').show().removeClass("rtl").addClass("ltr").css('margin', '2%').attr('name', this.postArray[i].subLinks[j]).html("<p>" + this.postArray[i].subLinks[j] + "</p>").on('click', function (e) { e.preventDefault(); window.open($(this).attr('name'), '_system', 'location=yes') });
+                    }
             }
             //setting the collapsed & expanded post text version
             if (postArrayModified != '') {
@@ -226,15 +262,9 @@ Main.prototype.showPagePosts = function () {  // This Function handle Showing Pa
         }
             //if the post type is photo
         else if (this.postArray[i].type == 'photo') {
-            var nPic;
-            if (this.postArray[i].pic.match(/=/g)) {  //for unregular photo images
-                nPic = this.postArray[i].pic;
-                $('#postcontainer' + this.counter + '-' + i).find('.postAsset').addClass('image').show().find('img').attr('src', nPic);
-            }
-            else {
-                nPic = this.postArray[i].pic.replace('_s', '_n');
-                $('#postcontainer' + this.counter + '-' + i).find('.postAsset').addClass('image').show().find('img').attr('src', nPic + '?x=123');
-            }
+            var nPic = "https://graph.facebook.com/" + this.postArray[i].objectId + "/picture";
+
+            $('#postcontainer' + this.counter + '-' + i).find('.postAsset').addClass('image').show().find('img').attr('src', nPic + '?x=123');
 
             //setting image height & width
             $('#postcontainer' + this.counter + '-' + i).find('.postAsset img').load(function () {
@@ -242,21 +272,26 @@ Main.prototype.showPagePosts = function () {  // This Function handle Showing Pa
             });
             //endSetting height & width
 
-            
+
             $('#postcontainer' + this.counter + '-' + i).find('.assetBG').on('click', function (evt) {
 
                 var pic = $(this).next().attr('src');
-                window.open('post.html?pic='+pic, '_system', 'location=yes');
-
+                window.open('post.html?pic=' + pic, '_system', 'location=yes');
             });
 
             if (this.postArray[i].link) {
-                $('#postcontainer' + this.counter + '-' + i).find('.postLink').show().attr('name', this.postArray[i].link[0]).html("<p>" + this.postArray[i].link[0] + "</p>").on('click', function (e) { e.preventDefault(); window.open($(this).attr('name'), '_system', 'location=yes') });
-                //alert(this.postArray[i].link.length);
-                for (var j = 1; j < this.postArray[i].link.length; j++) { //listing the rest of links
-                    //alert(this.postArray[i].link[j]);
-                    $('#postcontainer' + this.counter + '-' + i).append('<a target="_blank" class="postLink"></a>').find('.postLink:last').show().css('margin', '2%').attr('name', this.postArray[i].link[j]).html("<p>" + this.postArray[i].link[j] + "</p>").on('click', function (e) { e.preventDefault(); window.open($(this).attr('name'), '_system', 'location=yes') });
+                if (arabicRegex.test(this.postArray[i].name)) {
+                    $('#postcontainer' + this.counter + '-' + i).find('.postLink').removeClass('ltr').addClass('rtl');
                 }
+
+                if (!this.postArray[i].subLinks) {
+                    $('#postcontainer' + this.counter + '-' + i).find('.postLink').show().attr('name', this.postArray[i].link).html("<p>" + this.postArray[i].link[0] + "</p>").on('click', function (e) { e.preventDefault(); window.open($(this).attr('name'), '_system', 'location=yes') });
+                }
+                else
+                    //for rest links if post message contains more than one link
+                    for (var j = 0; j < this.postArray[i].subLinks.length; j++) { //listing the rest of links
+                        $('#postcontainer' + this.counter + '-' + i).append('<a target="_blank" class="postLink"></a>').find('.postLink:last').show().removeClass("rtl").addClass("ltr").css('margin', '2%').attr('name', this.postArray[i].subLinks[j]).html("<p>" + this.postArray[i].subLinks[j] + "</p>").on('click', function (e) { e.preventDefault(); window.open($(this).attr('name'), '_system', 'location=yes') });
+                    }
             }
             if (postArrayModified != '') {
                 if (postArrayMessage.length > 350)
@@ -286,16 +321,24 @@ Main.prototype.showPagePosts = function () {  // This Function handle Showing Pa
                 $('#postcontainer' + this.counter + '-' + i).hide();
 
             if (this.postArray[i].link) { // in case there's link in the message text
-                $('#postcontainer' + this.counter + '-' + i).find('.postLink').show().attr('name', this.postArray[i].link).html("<p>" + this.postArray[i].link + "</p>").on('click', function (e) { e.preventDefault(); window.open($(this).attr('name'), '_system', 'location=yes') });
+
+                if (arabicRegex.test(this.postArray[i].name)) {
+                    $('#postcontainer' + this.counter + '-' + i).find('.postLink').removeClass('ltr').addClass('rtl');
+                }
+                if (!this.postArray[i].subLinks)
+                    $('#postcontainer' + this.counter + '-' + i).find('.postLink').show().attr('name', this.postArray[i].link).html("<p>" + this.postArray[i].link + "</p>").on('click', function (e) { e.preventDefault(); window.open($(this).attr('name'), '_system', 'location=yes') });
+                else
+                    //for rest links if post message contains more than one link
+
+                    for (var j = 1; j < this.postArray[i].subLinks.length; j++) { //listing the rest of links
+                        $('#postcontainer' + this.counter + '-' + i).find('.postLink:last').append('<a target="_blank" class="postLink"></a>').find('.postLink:last').show().removeClass("rtl").addClass("ltr").css('margin', '2%').attr('name', this.postArray[i].subLinks[j]).html("<p>" + this.postArray[i].subLinks[j] + "</p>").on('click', function (e) { e.preventDefault(); window.open($(this).attr('name'), '_system', 'location=yes') });
+                    }
             }
         }
 
         //checking rtl language
         if (arabicRegex.test(postArrayMessage)) {
             $('#postcontainer' + this.counter + '-' + i).find('.postText p').removeClass('ltr').addClass('rtl');
-        }
-        if (arabicRegex.test(this.postArray[i].name)) {
-            $('#postcontainer' + this.counter + '-' + i).find('.postLink').removeClass('ltr').addClass('rtl');
         }
     }
     $('#posts img').load(function () {
