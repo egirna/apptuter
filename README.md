@@ -1,6 +1,6 @@
 ![alt tag](https://raw.github.com/egirna/apptuter/master/artwork/apptuter-logo.png)
 ========
-Apptuter is a framework to produce mobile apps out of social media content, currently supporting generating apps out of Facebook public pages content and can produce apps for Android and Firefox OS..
+Apptuter is a framework to produce mobile apps out of social media content, currently supporting generating apps out of Facebook public pages content and can produce apps for Android and Firefox OS.
 
 <p align="center">
   <img src="https://raw.github.com/egirna/apptuter/master/artwork/facebook-apptuter.png" alt="Facebook page to app"/>
