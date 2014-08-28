@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.apptuter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Apptuter</name>
+<widget id="com.apptuter22" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Apptuter22</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Apptuter News
     </description>
-    <author email="dev@callback.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="moataz.abdallh@egirna.com" href="http://egirna.com/">
+       Egirna Team
     </author>
     <content src="index.html" />
     <access origin="*" />

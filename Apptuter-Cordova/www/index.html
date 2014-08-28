@@ -1,43 +1,123 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
+  Name : index.html
+ Company : Egirna Technologies Limited
 -->
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <link rel="stylesheet" type="text/css" href="css/green.css" class="theme" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.2.min.css" />
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.3.2.min.js"></script>
+    <!-- <script type="text/javascript" src="js/iscroll.js"></script> -->
+    
+    <script type="text/javascript" src="js/moment-with-langs.min.js"></script>
+
+
+    <!-- cordova facebook plugin -->
+    <script src="cdv-plugin-fb-connect.js"></script>
+    <!-- facebook js sdk -->
+    <script src="facebook-js-sdk.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/FB.js"></script>
+
+    <title></title>
+
+</head>
+<body onload=' app.initialize()'>
+    <div id="page" data-role="page" data-dom-cache="true">
+
+        <div class="wrapper" id="wrapper">
+        
+            
+            <!-- Facebook Container -->
+            <div id="fb-root" class='fit-width'></div>
+
+            <!--Start Application Header-->
+            <div id="header" >
+                <a id="homeIcon" class="headerIcon selected" href="#">
+                    <img src="img/homeIcon.png" class="imgIcon" /></a>
+                <a id="aboutIcon" class="headerIcon" href="#">
+                    <img src="img/aboutIcon.png" class="imgIcon" /></a>
+                <a id="settingIcon" class="headerIcon" href="#">
+                    <img src="img/settingIcon.png" class="imgIcon" /></a>
+            </div>
+            
+            <div class="coverPhoto">
+                <img src="" />
+                <div class="pageTitle"></div>
+            </div>
+            <!--End Application Header-->
+
+            <!--Start Home Content-->
+            <div class="homeContent tabContainer">
+            <div id="postsWrapper" >
+                <div id="posts">
+                </div>
+                </div>
+                <div id='morediv'>
+                    <div class='bgLayer'></div>
+                </div>
+            </div>
+            
+            <!--End Home Content-->
+
+            <div class="aboutContent tabContainer">
+                <div class='location'>
+                    <img src="" />
+                </div>
+                <div id='description' class='postcontainer'>
+                    <div class='postText'>
+                        <p></p>
+                    </div>
+                    <div style="margin-bottom:7%;"></div>
+                    <a rel="external" target="_system" class="postLink"></a>
+                </div>
+            </div>
+            
+            
+            <div class="settingContent tabContainer">
+           
+            <div class="containingElement">
+            
+            
+            <!-- Caching Section -->
+           <div data-role="fieldcontain" >
+            <label for="caching">Caching:</label>
+				<select name="caching" id="caching" data-role="slider">
+					<option value="off">Off</option>
+					<option value="on" selected>On</option>
+				</select> 
+			</div>
+			<!-- Theme Section -->
+	<div data-role="fieldcontain" id="theme">
+    <fieldset data-role="controlgroup">
+    	<legend>Theme</legend>
+         	<input type="radio" name="radio-choice-2" id="blue" value="blue" checked="checked" />
+         	<label for="blue">Blue</label>
+
+         	<input type="radio" name="radio-choice-2" id="green" value="green"  />
+         	<label for="green">Green</label>
+
+         	<input type="radio" name="radio-choice-2" id="red" value="red"  />
+         	<label for="red">Red</label>
+    </fieldset>
+</div>
+			<!-- end theme section -->
+			<a href="#" id="saveSettings"  data-role="button" data-icon="gear">Save</a>
+			</div>
+			<div data-theme="c" id="footer"  data-role="footer">
+			<a href="http://www.apptuter.com" data-icon="home">Powered by Apptuter</a>
+  				
+			</div>
             </div>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-    </body>
+    </div>
+</body>
 </html>
