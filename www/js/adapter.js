@@ -1,6 +1,6 @@
 ﻿
-var baseUrl = "http://esprit-solutions.com/apps/NewsWear/";
-var feedUrl = "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=";
+var baseUrl = "";
+var feedUrl = "";
 
 isEmpty = function (data) {
     if (data == undefined || data == null)
