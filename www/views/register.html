@@ -1,0 +1,57 @@
+﻿<div style="overflow-x:hidden"  data-ng-cloak  >
+    <link href="css/register.css" rel="stylesheet" />
+    <div class="blur-background"></div>
+    <div class="bar bar-header bar-positive">
+        <h1 class="title">Build Your Social App</h1>
+    </div>
+    <ion-content overflow-scroll="true" scrollbar-y="false" scrollbar-x="false" class="register">
+        <div class="row" style="margin-top:15%;margin-left:22%">
+
+            <div class="col col-50">
+                <img ng-src="img/apptuter-logo.png" style="width:100%">
+            </div>
+        </div>
+        <form style="height:100%" name="registerForm" data-ng-submit="search(registerForm)" novalidate>
+            <div class="list list-inset">
+                <label class="item item-input" data-ng-class="registerForm.fbPage.$invalid && !registerForm.fbPage.$pristine ?'error' :'' ">
+                    <input id="fbPage" name="fbPage" type="text" placeholder="Facebook.com/" data-ng-model="fSettings.pageName" required>
+                </label>
+                <label class="item item-input" data-ng-class="registerForm.email.$invalid && !registerForm.fbPage.$pristine ?'error' :'' ">
+                    <input name="email" type="email" required data-ng-model="fSettings.email" placeholder="Email">
+                </label>
+                <label class="item item-input">
+                    <input name="tel" type="tel" placeholder="Mobile Number for your Customers" data-ng-model="fSettings.tel">
+                </label>
+                <!--<label class="item item-input item-select">
+                    <div class="input-label">
+                        Theme
+                    </div>
+                    <select ng-model="selectedTheme">
+                        <option ng-repeat="color in fSettings.colors">{{color}}</option>
+                    </select>
+                </label>-->
+                <!--<div class="item item-toggle">
+                    Caching
+                    <label class="toggle toggle-positive">
+                        <input type="checkbox" checked>
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </div>-->
+                <div class="item item-toggle">
+                    Push Notification
+                    <label class="toggle toggle-positive">
+                        <input name="push" type="checkbox" checked data-ng-model="fSettings.push">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class="bar bar-footer bar-positive " style="position:absolute !important;bottom:9%">
+                <button class="button button-clear button-full icon-left ion-social-facebook-outline" type="submit">Search</button>
+            </div>
+        </form>
+    </ion-content>
+</div>
