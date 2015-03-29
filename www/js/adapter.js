@@ -1,6 +1,4 @@
 ﻿
-var baseUrl = "";
-var feedUrl = "";
 
 isEmpty = function (data) {
     if (data == undefined || data == null)
