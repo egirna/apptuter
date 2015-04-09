@@ -41,7 +41,7 @@ api.process = function (options) {
         }
         //invoke the remote API to refresh UI
         api.invoke(options.request).done(function (data) {
-            debugger
+            
             if (!data.responseStatus) { //in case you are in normal requests
                 if (options.validData) {
                     options.validData(data);
@@ -74,37 +74,33 @@ api.invoke = function (options) {
     return $.ajax(options)
 }
 api.errorHandler = function (jqXHR, exception, key) {
-    if (jqXHR.expired) {
-        //in case feeds are out of date
-        window.plugins.toast.showShortBottom("Sorry feeds are out of date, Try again later")
-    }
     if (dataStorage.get(key) == undefined) {
         if (jqXHR.status === 0) {
-            navigator.notification.alert('Not connected to working internet, Check your network settings', function () {
+            NativeBridge.alert('Not connected to working internet, Check your network settings', function () {
                 navigator.app.exitApp();
             }, "Warning");
         } else if (jqXHR.status == 404) {
-            navigator.notification.alert('Requested page not found. [404]', function () {
+            NativeBridge.alert('Requested page not found. [404]', function () {
                 navigator.app.exitApp();
             }, "Warning");
         } else if (jqXHR.status == 500) {
-            navigator.notification.alert('Internal Server Error [500].', function () {
+            NativeBridge.alert('Internal Server Error [500].', function () {
                 navigator.app.exitApp();
             }, "Warning");
         } else if (exception === 'parsererror') {
-            navigator.notification.alert('Requested JSON parse failed.', function () {
+            NativeBridge.alert('Requested JSON parse failed.', function () {
                 navigator.app.exitApp();
             }, "Warning");
         } else if (exception === 'timeout') {
-            navigator.notification.alert('Time out error.', function () {
+            NativeBridge.alert('Time out error.', function () {
                 navigator.app.exitApp();
             }, "Warning");
         } else if (exception === 'abort') {
-            navigator.notification.alert('Ajax request aborted.', function () {
+            NativeBridge.alert('Ajax request aborted.', function () {
                 navigator.app.exitApp();
             }, "Warning");
         } else {
-            navigator.notification.alert('Uncaught Error.n' + jqXHR.responseText, function () {
+            NativeBridge.alert('Uncaught Error.n' + jqXHR.responseText, function () {
                 navigator.app.exitApp();
             }, "Warning");
         }

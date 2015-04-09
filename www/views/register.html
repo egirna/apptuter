@@ -13,14 +13,23 @@
         </div>
         <form style="height:100%" name="registerForm" data-ng-submit="search(registerForm)" novalidate>
             <div class="list list-inset">
-                <label class="item item-input" data-ng-class="registerForm.fbPage.$invalid && !registerForm.fbPage.$pristine ?'error' :'' ">
-                    <input id="fbPage" name="fbPage" type="text" placeholder="Facebook.com/" data-ng-model="fSettings.pageName" required>
+                <div id="fbpage" class="item item-input">
+                <angucomplete-alt id="pages"
+                                  placeholder="facebook.com/"
+                                  pause="400"
+                                  selectedobject="fbPage"
+                                  remote-url="https://graph.facebook.com/search?access_token=561797127192762|Qul8ztWbmhVP5-WUmPFh1Cs0m8s&limit=4&type=page&fields=name,category,username,picture&q="
+                                  remote-url-data-field="data"
+                                  title-field="name"
+                                  description-field="category"
+                                  image-field="picture.data.url"
+                                  input-class="item item-input autocomplete" />
+               </div>
+                <label class="item item-input" data-ng-class="registerForm.username.$invalid && !registerForm.username.$pristine ?'error' :'' ">
+                    <input style="padding-left:16px" name="username" type="text" required data-ng-model="fSettings.username" placeholder="User Name">
                 </label>
-                <label class="item item-input" data-ng-class="registerForm.email.$invalid && !registerForm.fbPage.$pristine ?'error' :'' ">
-                    <input name="email" type="email" required data-ng-model="fSettings.email" placeholder="Email">
-                </label>
-                <label class="item item-input">
-                    <input name="tel" type="tel" placeholder="Mobile Number for your Customers" data-ng-model="fSettings.tel">
+                <label class="item item-input" data-ng-class="registerForm.email.$invalid && !registerForm.email.$pristine ?'error' :'' ">
+                    <input style="padding-left:16px" name="email" type="email" required data-ng-model="fSettings.email" placeholder="Email">
                 </label>
                 <!--<label class="item item-input item-select">
                     <div class="input-label">
@@ -39,8 +48,8 @@
                         </div>
                     </label>
                 </div>-->
-                <div class="item item-toggle">
-                    Push Notification
+                <div  class="item item-toggle">
+                    <span style="padding-left:16px">Push Notification</span>
                     <label class="toggle toggle-positive">
                         <input name="push" type="checkbox" checked data-ng-model="fSettings.push">
                         <div class="track">

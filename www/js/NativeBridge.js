@@ -9,6 +9,18 @@
         else
             alert(message);
     },
+    toastshort: function (message) {
+        if (window.plugins && window.plugins.toast)
+            window.plugins.toast.showShortBottom(message);
+        else
+            NativeBridge.alert(message);
+    },
+    closeApp: function () {
+        if (navigator.app)
+            navigator.app.exit();
+        else
+            window.close();
+    },
     //ImageCaching
     useCachedFile: function (url, id,originalUrl) {
         if (id != null)

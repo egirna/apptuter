@@ -3,7 +3,7 @@
 var deferred = $.Deferred();
 
 // Declare app level module which depends on views, and components
-var app = angular.module('Apptuter', ['ionic', 'rgCacheView'
+var app = angular.module('Apptuter', ['ionic', 'rgCacheView', 'angucomplete-alt'
 ]).config(function ($stateProvider, $urlRouterProvider) {
 
     // For any unmatched url, send to /route1
@@ -40,9 +40,9 @@ var app = angular.module('Apptuter', ['ionic', 'rgCacheView'
     $ionicTabsConfig.type = '';
 }]);
 
-app.controller('registerController', ['$scope',function ($scope) {
+app.controller('registerController', ['$scope','$rootScope',function ($scope,$rootSope) {
     require(['js/controllers/registerController'], function (reg) {
-        reg($scope)
+        reg($scope,$rootSope)
     })
 }])
 
@@ -141,6 +141,7 @@ app.directive('errsrc', function () {
 document.addEventListener('deviceready', function () { onDeviceReady() }, false);
 
 function onDeviceReady() {
+
     if (ImgCache) {
         ImgCache.init(function () {
             console.log('ImgCache init: success!');
