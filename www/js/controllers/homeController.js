@@ -1,5 +1,5 @@
 ﻿define(function () {
-    return function ($scope, $rootScope) {
+    return function ($scope, $rootScope,$location) {
         $scope.graphUrl = $scope.baseUrl + $scope.fSettings.pageName + "/posts?limit=20&access_token=" + $rootScope.FBToken;
 
         $scope.shouldShowDelete = false;
@@ -144,27 +144,43 @@
         options.method = "get_posts"
         options.localData = function (response) {
             if (!isEmpty(response)) {
-                $scope.posts = response.data;
-                $scope.paging = response.paging;
-                $scope.$apply();
                 $scope.hideLoading();
-                $('.linky').on("click", function (e) {
-                    e.preventDefault();
-                    debugger;
-                    $scope.openUrl($(this).attr("href"), "_system");
-                })
+                if (response.data.length > 0) {
+                    $scope.posts = response.data;
+                    $scope.paging = response.paging;
+                    $scope.$apply();
+                    $('.linky').on("click", function (e) {
+                        e.preventDefault();
+                        debugger;
+                        $scope.openUrl($(this).attr("href"), "_system");
+                    })
+                }
+                else { //in case this page have no posts so clear localstorage & return back to register controller
+                    localStorage.clear();
+                    NativeBridge.alert("Sorry no posts found in this page, please try another page name", null, "Warning", "Ok")
+                    $location.path('/register');
+                    $scope.$apply();
+                }
             }
         }
         options.validData = function (response) {
             if (!isEmpty(response)) {
-                $scope.posts = response.data;
-                $scope.paging = response.paging;
                 $scope.hideLoading();
-                $('.linky').on("click", function (e) {
-                    e.preventDefault();
-                    debugger;
-                    $scope.openUrl($(this).attr("href"), "_system");
-                })
+                if (response.data.length > 0) {
+                    $scope.posts = response.data;
+                    $scope.paging = response.paging;
+                    $('.linky').on("click", function (e) {
+                        e.preventDefault();
+                        debugger;
+                        $scope.openUrl($(this).attr("href"), "_system");
+                    })
+                }
+                else { //in case this page have no posts so clear localstorage & return back to register controller
+                    localStorage.clear();
+                    NativeBridge.alert("Sorry no posts found in this page, please try another page name", null, "Warning", "Ok")
+                    $location.path('/register');
+                    $scope.$apply();
+                }
             }
         }
         api.process(options);

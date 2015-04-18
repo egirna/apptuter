@@ -54,9 +54,9 @@ app.controller('mainController', ['$scope', '$ionicPopup', '$ionicBackdrop', '$i
         main($scope, $ionicPopup, $ionicBackdrop, $ionicLoading, $ionicTabsDelegate, $rootScope)
     })
 }])
-app.controller('homeController', ['$scope', '$rootScope', function ($scope, $rootScope) {
+app.controller('homeController', ['$scope', '$rootScope','$location', function ($scope, $rootScope,$location) {
     require(['js/controllers/homeController'], function (home) {
-        home($scope, $rootScope)
+        home($scope, $rootScope,$location)
     })
 }]);
 app.controller('aboutController', ['$scope', function ($scope) {
