@@ -1,8 +1,7 @@
 ﻿define(function () {
-    return function ($scope, $ionicPopup, $ionicBackdrop, $ionicLoading, $ionicTabsDelegate) {
+    return function ($scope, $ionicPopup, $ionicBackdrop, $ionicLoading, $ionicTabsDelegate,$rootScope) {
         $scope.animationLoading = true;
         $scope.baseUrl = "https://graph.facebook.com/";
-        $scope.accessToken = '561797127192762|Qul8ztWbmhVP5-WUmPFh1Cs0m8s';
         $scope.fSettings = JSON.parse(localStorage["fSettings"]);
         
         $scope.backdropRetain = function () {
@@ -69,7 +68,7 @@
         var options = {};
         options.status = api.SYNC;
         options.request = {};
-        options.request.url = $scope.baseUrl + $scope.fSettings.pageName + "?fields=picture&type=normal&access_token=" + $scope.accessToken;
+        options.request.url = $scope.baseUrl + $scope.fSettings.pageName + "?fields=picture&type=normal&access_token=" + $rootScope.FBToken;
         options.request.type = "GET";
         options.request.dataType = "json";
         options.method = "get_pageThumb"

@@ -4,6 +4,7 @@
         $scope.toggleDescription = function () {
             $scope.isDescriptionShown = !$scope.isDescriptionShown;
         }
+        $scope.baseUrl = "https://graph.facebook.com/";
         $scope.fSettings = JSON.parse(localStorage["fSettings"]);
             var options = {};
             options.status = api.SYNC;

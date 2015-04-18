@@ -40,23 +40,23 @@ var app = angular.module('Apptuter', ['ionic', 'rgCacheView', 'angucomplete-alt'
     $ionicTabsConfig.type = '';
 }]);
 
-app.controller('registerController', ['$scope','$rootScope',function ($scope,$rootSope) {
+app.controller('registerController', ['$scope', '$rootScope', '$ionicLoading', '$location', function ($scope, $rootSope, $ionicLoading, $location) {
     require(['js/controllers/registerController'], function (reg) {
-        reg($scope,$rootSope)
+        reg($scope, $rootSope, $ionicLoading, $location)
     })
 }])
 
-app.controller('mainController', ['$scope', '$ionicPopup', '$ionicBackdrop', '$ionicLoading', '$ionicTabsDelegate', function ($scope, $ionicPopup, $ionicBackdrop, $ionicLoading, $ionicTabsDelegate) {
+app.controller('mainController', ['$scope', '$ionicPopup', '$ionicBackdrop', '$ionicLoading', '$ionicTabsDelegate', '$rootScope', function ($scope, $ionicPopup, $ionicBackdrop, $ionicLoading, $ionicTabsDelegate, $rootScope) {
     $ionicLoading.show({
         template: '<i class="icon ion-loading-a"></i> Loading...'
     });
     require(['js/controllers/mainController'], function (main) {
-        main($scope, $ionicPopup, $ionicBackdrop, $ionicLoading, $ionicTabsDelegate)
+        main($scope, $ionicPopup, $ionicBackdrop, $ionicLoading, $ionicTabsDelegate, $rootScope)
     })
 }])
-app.controller('homeController', ['$scope', function ($scope) {
+app.controller('homeController', ['$scope', '$rootScope', function ($scope, $rootScope) {
     require(['js/controllers/homeController'], function (home) {
-        home($scope)
+        home($scope, $rootScope)
     })
 }]);
 app.controller('aboutController', ['$scope', function ($scope) {

@@ -1,6 +1,6 @@
 ﻿define(function () {
-    return function ($scope) {
-        $scope.graphUrl = $scope.baseUrl + $scope.fSettings.pageName + "/posts?limit=20&access_token=" + $scope.accessToken;
+    return function ($scope, $rootScope) {
+        $scope.graphUrl = $scope.baseUrl + $scope.fSettings.pageName + "/posts?limit=20&access_token=" + $rootScope.FBToken;
 
         $scope.shouldShowDelete = false;
         $scope.listCanSwipe = true;

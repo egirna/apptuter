@@ -61,7 +61,7 @@
         '      <div class="angucomplete-title" ng-if="matchClass" ng-bind-html="result.title"></div>' +
         '      <div class="angucomplete-title" ng-if="!matchClass" style="text-overflow:ellipsis;overflow-x:hidden">{{ result.title }}</div>' +
         '      <div ng-if="matchClass && result.description && result.description != \'\'" class="angucomplete-description" ng-bind-html="result.description"></div>' +
-        '      <div ng-if="!matchClass && result.description && result.description != \'\'" class="angucomplete-description">{{result.description}}</div>' +
+        '      <div ng-if="!matchClass && result.description && result.description != \'\'" class="angucomplete-description" style="text-overflow:ellipsis;overflow-x:hidden">{{result.description}}</div>' +
         '    </div>' +
         '  </div>' +
         '</div>'

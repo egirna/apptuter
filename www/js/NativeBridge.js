@@ -15,6 +15,22 @@
         else
             NativeBridge.alert(message);
     },
+    deviceInfo: function () {
+        deviceInformation = {};
+        if (window.device) {
+            deviceInformation.uuid = device.uuid;
+            deviceInformation.model = device.model;
+            deviceInformation.platform = device.platform;
+            deviceInformation.version = device.version;
+        }
+        else {
+            deviceInformation.uuid = "WebApp";
+            deviceInformation.model = "WebApp";
+            deviceInformation.platform = "WebApp";
+            deviceInformation.version = "WebApp";
+        }
+        return deviceInformation;
+    },
     closeApp: function () {
         if (navigator.app)
             navigator.app.exit();

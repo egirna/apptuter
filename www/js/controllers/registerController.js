@@ -1,7 +1,15 @@
 ﻿define(function () {
-    return function ($scope,$rootScope) {
+    return function ($scope, $rootScope, $ionicLoading, $location) {
         //Getting static FB token from Server
         
+        $scope.showLoading = function () {
+            $ionicLoading.show({
+                template: '<i class="icon ion-loading-a"></i> Loading...'
+            });
+        }
+        $scope.hideLoading = function () {
+            $ionicLoading.hide();
+        }
         var options = {};
         options.status = api.SYNC;
         options.request = {};
@@ -37,21 +45,73 @@
         }
         $scope.change = function (_this) {
             if ($scope.fSettings.pageName.indexOf("Facebook.com") < 0)
-            $scope.fSettings.pageName = "Facebook.com/" + $scope.fSettings.pageName;
+                $scope.fSettings.pageName = "Facebook.com/" + $scope.fSettings.pageName;
         }
+        $scope.saveSubscription = function () {
+            var deferred = $.Deferred();
+            var options = {};
+            $scope.deviceInfo = NativeBridge.deviceInfo();
+            options.status = api.REMOTE;
+            options.request = {};
+            options.request.url = 'http://apptuter.com/services/save_subscription.php';
+            options.request.type = "POST";
+            options.request.dataType = "json";
+            options.request.data = {};
+            options.request.data.pagename = $('#pages_value').val()+' '+$scope.fSettings.pageName;
+            options.request.data.username = $scope.fSettings.username;
+            options.request.data.email = $scope.fSettings.email;
+            if ($scope.fSettings.push)
+            options.request.data.pushnotification = 1;
+            options.request.data.deviceid = $scope.deviceInfo.uuid;
+            options.request.data.devicemodel = $scope.deviceInfo.model;
+            options.request.data.deviceplatform = $scope.deviceInfo.platform;
+            options.request.data.deviceversion = $scope.deviceInfo.version;
 
-        $scope.search = function (myForm) {
-            
-            if (myForm.$valid) {
-                if ($rootScope.pageId){
-                $scope.fSettings.pageName = $rootScope.pageId
-                localStorage["fSettings"] = JSON.stringify($scope.fSettings);
-                var loc = $('html').injector().get('$location');
-                loc.path("/main");
-
+            options.method = "save_subscription";
+            options.validData = function (response) {
+                if (!isEmpty(response)) {
+                    debugger
+                    deferred.resolve();
                 }
-                else
-                    NativeBridge.alert("Please enter valid page name", null, "Warning", "Ok");
+            }
+            api.process(options);
+            return deferred.promise();
+        }
+        $scope.search = function (myForm) {
+            if (myForm.$valid) {
+                $scope.showLoading();
+                var loc = $('html').injector().get('$location');
+                if ($rootScope.pageId){
+                    $scope.fSettings.pageName = $rootScope.pageId
+                    $scope.hideLoading();
+                    $scope.saveSubscription().done(function () {
+                        localStorage["fSettings"] = JSON.stringify($scope.fSettings);
+                        $location.path('/main');
+                        $scope.$apply();
+                    });
+                }
+                else {
+                    $scope.fSettings.pageName = $('#pages_value').val();
+                    $.ajax({
+                        url: 'https://graph.facebook.com/' + $scope.fSettings.pageName,
+                        method:"GET"
+                    }).done(function (data) {
+                        $scope.hideLoading();
+                     if (data.id) {
+                         $scope.saveSubscription().done(function () {
+                             localStorage["fSettings"] = JSON.stringify($scope.fSettings);
+                             $location.path('/main');
+                             $scope.$apply();
+                         });
+                        }
+                    }).fail(function (data) {
+                        $scope.hideLoading();
+                        if (data.status && data.status == 404)
+                            NativeBridge.alert("Please enter valid page name", null, "Warning", "Ok");
+                        else
+                        NativeBridge.alert("Please check network connectivity & try again later", null, "Warning", "Ok");
+                    })
+                }
             }
           
             else
