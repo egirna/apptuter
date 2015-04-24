@@ -20,19 +20,18 @@
         options.localData = function (response) {
             if (!isEmpty(response)) {
                 $rootScope.FBToken = response.FBToken
-                $scope.searchUrl = 'https://graph.facebook.com/search?access_token=' + response.FBToken + '&limit=4&type=page&fields=name,category,username,picture&q=';
+                $rootScope.searchUrl = 'https://graph.facebook.com/search?access_token=' + response.FBToken + '&limit=4&type=page&fields=name,category,username,picture&q=';
                 $scope.$apply();
             }
         }
         options.validData = function (response) {
             if (!isEmpty(response)) {
                 $rootScope.FBToken = response.FBToken;
-                $scope.searchUrl = 'https://graph.facebook.com/search?access_token=' + response.FBToken + '&limit=4&type=page&fields=name,category,username,picture&q=';
+                $rootScope.searchUrl = 'https://graph.facebook.com/search?access_token=' + response.FBToken + '&limit=4&type=page&fields=name,category,username,picture&q=';
                 $scope.$apply();
             }
         }
         api.process(options);
-
 
         $scope.fSettings = {};
         $scope.fSettings.colors = ["Blue","Green","Red"] ;
@@ -43,11 +42,8 @@
         $scope.openUrl = function (url) {
             NativeBridge.openUrl(url, '_system', undefined);
         }
-        $scope.change = function (_this) {
-            if ($scope.fSettings.pageName.indexOf("Facebook.com") < 0)
-                $scope.fSettings.pageName = "Facebook.com/" + $scope.fSettings.pageName;
-        }
-        $scope.saveSubscription = function () {
+
+        $rootScope.saveSubscription = function () {
             var deferred = $.Deferred();
             var options = {};
             $scope.deviceInfo = NativeBridge.deviceInfo();
@@ -80,7 +76,6 @@
         $scope.search = function (myForm) {
             if (myForm.$valid) {
                 $scope.showLoading();
-                var loc = $('html').injector().get('$location');
                 if ($rootScope.pageId){
                     $scope.fSettings.pageName = $rootScope.pageId
                     $scope.hideLoading();
@@ -100,7 +95,7 @@
                      if (data.id) {
                          $scope.saveSubscription().done(function () {
                              localStorage["fSettings"] = JSON.stringify($scope.fSettings);
-                             $location.path('/main');
+                             $location.path('/main/home');
                              $scope.$apply();
                          });
                         }

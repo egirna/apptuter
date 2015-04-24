@@ -1,0 +1,66 @@
+﻿<ion-view title="Home">
+    <ion-content has-bouncing="true" overflow-scroll="true" scrollbar-y="false" scrollbar-x="false" id="home">
+        <!--Loader Animation-->
+        <!--<div data-ng-if="animationLoading" class="thing">
+            <div class="beam r1 r"></div>
+            <div class="beam r3 r"></div>
+            <div class="beam b1 b"></div>
+            <div class="beam b3 b"></div>
+        </div>-->
+        <!--List Of Cards-->
+        <!--<ion-list show-delete="shouldShowDelete"
+              can-swipe="listCanSwipe">
+        <ion-item ng-repeat="post in posts" class="repeat-animation">-->
+        <div class="list card" ng-repeat="post in posts" data-ng-show="post.type!='status'">
+            <div class="item item-avatar">
+                <img data-ng-src="{{pageThumb}}">
+                <p style="font-size:0.8em;padding-top:6%" data-ng-bind="post.created_time | formateTime"></p>
+                <i class="icon" data-ng-class="'{{postType(post.type)}}'" style="position:absolute;top:21%;right:5%;font-size:3em"></i>
+            </div>
+
+            <div class="post-item item">
+                <div data-ng-show="post.picture" img-src="{{post.picture}}" img-obj="{{post.object_id}}">
+                    <img errsrc="img/no_image_available.jpg" class="full-image" src="{{decodeImageUrl(post)}}">
+                </div>
+                <p style="margin:2%" data-ng-bind-html="post.message |linky " data-ng-class="lng(post.message)? 'rtl':'ltr'">
+                </p>
+                <div style="margin-top:4%" class="list" data-ng-show="post.type=='link'">
+                    <div data-ng-show="post.description" class="item item-divider item-icon-left" data-ng-click="toggleLinkDescShown(post)">
+                        <h2 data-ng-show="!post.linkDescShown" data-ng-bind="post.description"></h2>
+                        <i class="icon" ng-class="post.linkDescShown ? 'ion-minus' : 'ion-plus'"></i>
+                        <p data-ng-bind-html="post.description" data-ng-show="post.linkDescShown"></p>
+                    </div>
+                    <a data-ng-click="openUrl(post.link,'_system')" class="button button-full button-positive icon-left ion-link" data-ng-bind="post.name" style="overflow:hidden;text-overflow:ellipsis"></a>
+                </div>
+                <div style="margin-top:4%" class="list" data-ng-show="post.type=='video'">
+                    <a data-ng-click="openVideo(post.source,post.name)" class="button button-full button-positive icon-left ion-social-youtube" style="overflow:hidden;text-overflow:ellipsis">
+                        <span data-ng-show="post.name" data-ng-bind="post.name" style="overflow:hidden;text-overflow:ellipsis"></span>
+                        <span data-ng-show="!post.name">Watch Video</span>
+                    </a>
+                </div>
+                <p>
+                    <a href="#" class="subdued"></a>
+                    <a href="#" class="subdued">5 Comments</a>
+                </p>
+            </div>
+        </div>
+
+        <!--<ion-option-button class="button-positive"
+                                   ng-click="share(item)">
+                    Share
+                </ion-option-button>
+                <ion-option-button class="button-info"
+                                   ng-click="edit(item)">
+                    Edit
+                </ion-option-button>
+                <ion-delete-button class="ion-minus-circled"
+                                   ng-click="posts.splice($index, 1)">
+                </ion-delete-button>
+
+            </ion-item>
+        </ion-list>-->
+    </ion-content>
+    <div class="bar bar-footer bar-positive" style="position:fixed !important">
+        <button data-ng-click="loadMore()" class="button button-clear button-full  icon-left ion-arrow-down-a">More</button>
+    </div>
+</ion-view>

@@ -14,14 +14,14 @@ var app = angular.module('Apptuter', ['ionic', 'rgCacheView', 'angucomplete-alt'
           url: "/register",
           templateUrl: "views/register.html",
           controller: 'registerController',
-          resolve:{
+          resolve: {
               deviceReady: function () {
                   var loc = $('html').injector().get("$location");
                   if (localStorage["fSettings"] != null)
-                      loc.path ("/main");
+                      loc.path("/main");
                   return deferred.promise();
               }
-          }                     
+          }
       })
 
       .state('main', {
@@ -34,6 +34,34 @@ var app = angular.module('Apptuter', ['ionic', 'rgCacheView', 'angucomplete-alt'
               }
           }
 
+      }).state('main.tabs', {
+          url: "/tabs",
+          templateUrl: "templates/tabs.html"
+
+      }).state('main.tabs.home', {
+          url: "/home",
+          views: {
+              'home-tab': {
+                  templateUrl: "views/home.html",
+                  controller: 'homeController'
+              }
+          }
+      }).state('main.tabs.about', {
+          url: "/about",
+          views: {
+              'about-tab': {
+                  templateUrl: "views/about.html",
+                  controller: 'aboutController'
+              }
+          }
+      }).state('main.tabs.settings', {
+          url: "/settings",
+          views: {
+              'settings-tab': {
+                  templateUrl: "views/settings.html",
+                  controller: 'settingsController'
+              }
+          }
       })
 }).config(['$ionicTabsConfig', function ($ionicTabsConfig) {
     // Override the Android platform default to add "tabs-striped" class to "ion-tabs" elements.
@@ -46,17 +74,17 @@ app.controller('registerController', ['$scope', '$rootScope', '$ionicLoading', '
     })
 }])
 
-app.controller('mainController', ['$scope', '$ionicPopup', '$ionicBackdrop', '$ionicLoading', '$ionicTabsDelegate', '$rootScope', function ($scope, $ionicPopup, $ionicBackdrop, $ionicLoading, $ionicTabsDelegate, $rootScope) {
-    $ionicLoading.show({
-        template: '<i class="icon ion-loading-a"></i> Loading...'
-    });
+app.controller('mainController', ['$scope', '$ionicPopup', '$ionicBackdrop', '$ionicLoading', '$ionicTabsDelegate', '$rootScope', '$location', function ($scope, $ionicPopup, $ionicBackdrop, $ionicLoading, $ionicTabsDelegate, $rootScope, $location) {
+    //$ionicLoading.show({
+    //    template: '<i class="icon ion-loading-a"></i> Loading...'
+    //});
     require(['js/controllers/mainController'], function (main) {
-        main($scope, $ionicPopup, $ionicBackdrop, $ionicLoading, $ionicTabsDelegate, $rootScope)
+        main($scope, $ionicPopup, $ionicBackdrop, $ionicLoading, $ionicTabsDelegate, $rootScope, $location)
     })
 }])
-app.controller('homeController', ['$scope', '$rootScope','$location', function ($scope, $rootScope,$location) {
+app.controller('homeController', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
     require(['js/controllers/homeController'], function (home) {
-        home($scope, $rootScope,$location)
+        home($scope, $rootScope, $location)
     })
 }]);
 app.controller('aboutController', ['$scope', function ($scope) {
@@ -64,9 +92,9 @@ app.controller('aboutController', ['$scope', function ($scope) {
         about($scope)
     })
 }])
-app.controller('settingsController', ['$scope', function ($scope) {
+app.controller('settingsController', ['$scope', '$rootScope', function ($scope, $rootScope) {
     require(['js/controllers/settingsController'], function (settings) {
-        settings($scope)
+        settings($scope, $rootScope)
     })
 }])
 app.filter('removeUrl', function () {
@@ -84,7 +112,7 @@ app.filter('formateTime', function () {
         return time;
     }
 });
-app.filter('arabic', ['$sanitize', '$sce','$parse', function($sanitize,$sce,$parse) {
+app.filter('arabic', ['$sanitize', '$sce', '$parse', function ($sanitize, $sce, $parse) {
     var arabicRegex = /[\u0600-\u06FF]/;
     var html = [];
     return function (input) {

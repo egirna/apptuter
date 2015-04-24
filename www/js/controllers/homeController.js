@@ -1,10 +1,29 @@
 ﻿define(function () {
-    return function ($scope, $rootScope,$location) {
+    return function ($scope, $rootScope, $location) {
         $scope.graphUrl = $scope.baseUrl + $scope.fSettings.pageName + "/posts?limit=20&access_token=" + $rootScope.FBToken;
 
-        $scope.shouldShowDelete = false;
-        $scope.listCanSwipe = true;
-
+        //Retrieving Page Thumbnail
+        var options = {};
+        options.status = api.SYNC;
+        options.request = {};
+        options.request.url = $scope.baseUrl + $scope.fSettings.pageName + "?fields=picture&type=normal&access_token=" + $rootScope.FBToken;
+        options.request.type = "GET";
+        options.request.dataType = "json";
+        options.method = "get_pageThumb"
+        options.localData = function (response) {
+            if (!isEmpty(response)) {
+                $scope.pageThumb = response.picture.data.url;
+                $scope.$apply();
+            }
+        }
+        options.validData = function (response) {
+            if (!isEmpty(response)) {
+                $scope.pageThumb = response.picture.data.url;
+                $scope.$apply();
+            }
+        }
+        api.process(options);
+        //Determining Post TYPE {link - image - video}
         $scope.postType = function (type) {
             switch (type) {
                 case "link":
@@ -83,55 +102,53 @@
             api.process(options);
 
         }
-        //Pull to Refresh
-        $scope.reload = function () {
-            if ($('.tabs a:first i').hasClass('ion-ios7-home-outline'))
-                $scope.showHomePan();
-            else {
-                $scope.showLoading();
+        //Click on Reload icon
+        $rootScope.reload = function () {
 
-                var options = {};
-                options.status = api.REMOTE;
-                options.request = {};
-                options.request.url = $scope.graphUrl;
-                options.request.type = "GET";
-                options.request.dataType = "json";
-                options.method = "get_newPosts";
-                options.storeInLocalStorage = false;
-                options.validData = function (response) {
-                    if (!isEmpty(response)) {
-                        $scope.newPosts = response.data;
+            $scope.showLoading();
 
-                        //Get Difference between the oldest posts & newest one.
-                        //$scope.differencePosts = _.difference($scope.newPosts, $scope.posts);
-                        _.filter($scope.newPosts, function (post, idx) {
-                            if (post.id == $scope.posts[0].id) {
-                                $scope.splitId = idx;
-                                return true;
-                            }
-                        });
-                        $scope.differencePosts = [];
-                        for (var i = 0; i < $scope.splitId; i++) {
-                            $scope.differencePosts.push($scope.newPosts[i]);
+            var options = {};
+            options.status = api.REMOTE;
+            options.request = {};
+            options.request.url = $scope.graphUrl;
+            options.request.type = "GET";
+            options.request.dataType = "json";
+            options.method = "get_newPosts";
+            options.storeInLocalStorage = false;
+            options.validData = function (response) {
+                if (!isEmpty(response)) {
+                    $scope.newPosts = response.data;
+
+                    //Get Difference between the oldest posts & newest one.
+                    //$scope.differencePosts = _.difference($scope.newPosts, $scope.posts);
+                    _.filter($scope.newPosts, function (post, idx) {
+                        if (post.id == $scope.posts[0].id) {
+                            $scope.splitId = idx;
+                            return true;
                         }
-                        debugger
-                        for (var i = $scope.differencePosts.length - 1; i >= 0 ; i--) {
-                            $scope.posts.unshift($scope.differencePosts[i]);
-                        }
-
-                        $scope.$apply();
-                        $scope.hideLoading();
-
-                        debugger
-                        //Updating localStorage with new Posts
-                        var storeObj = {};
-                        storeObj.data = $scope.posts;
-                        storeObj.paging = $scope.paging;
-                        localStorage["get_posts"] = JSON.stringify(storeObj);
+                    });
+                    $scope.differencePosts = [];
+                    for (var i = 0; i < $scope.splitId; i++) {
+                        $scope.differencePosts.push($scope.newPosts[i]);
                     }
-                };
-                api.process(options);
-            }
+                    debugger
+                    for (var i = $scope.differencePosts.length - 1; i >= 0 ; i--) {
+                        $scope.posts.unshift($scope.differencePosts[i]);
+                    }
+
+                    $scope.$apply();
+                    $scope.hideLoading();
+
+                    debugger
+                    //Updating localStorage with new Posts
+                    var storeObj = {};
+                    storeObj.data = $scope.posts;
+                    storeObj.paging = $scope.paging;
+                    localStorage["get_posts"] = JSON.stringify(storeObj);
+                }
+            };
+            api.process(options);
+
         }
         //Main Request
 

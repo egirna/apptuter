@@ -1,9 +1,22 @@
 ﻿define(function () {
-    return function ($scope, $ionicPopup, $ionicBackdrop, $ionicLoading, $ionicTabsDelegate,$rootScope) {
+    return function ($scope, $ionicPopup, $ionicBackdrop, $ionicLoading, $ionicTabsDelegate, $rootScope, $location) {
         $scope.animationLoading = true;
         $scope.baseUrl = "https://graph.facebook.com/";
         $scope.fSettings = JSON.parse(localStorage["fSettings"]);
         
+        $scope.goHome = function () {
+            if ($('.tabs a:first i').hasClass('ion-ios7-home-outline'))
+                $location.path("main/tabs/home")
+            else
+                $rootScope.reload();
+
+        }
+        $scope.goAbout = function () {
+            $location.path("main/tabs/about")
+        }
+        $scope.goSettings = function () {
+            $location.path("main/tabs/settings")
+        }
         $scope.backdropRetain = function () {
             $ionicBackdrop.retain();
         }
@@ -64,26 +77,7 @@
             });
         }
         $scope.showLoading();
-        //Retrieving Page Thumbnail
-        var options = {};
-        options.status = api.SYNC;
-        options.request = {};
-        options.request.url = $scope.baseUrl + $scope.fSettings.pageName + "?fields=picture&type=normal&access_token=" + $rootScope.FBToken;
-        options.request.type = "GET";
-        options.request.dataType = "json";
-        options.method = "get_pageThumb"
-        options.localData = function (response) {
-            if (!isEmpty(response)) {
-                $scope.pageThumb = response.picture.data.url;
-                $scope.$apply();
-            }
-        }
-        options.validData = function (response) {
-            if (!isEmpty(response)) {
-                $scope.pageThumb = response.picture.data.url;
-                $scope.$apply();
-            }
-        }
-        api.process(options);
+        $location.path('main/tabs/home')
+     
     };
 })
