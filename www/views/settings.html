@@ -1,0 +1,46 @@
+﻿<ion-view title="Settings">
+    <link href="css/settings.css" rel="stylesheet" />
+    <ion-content overflow-scroll="true" scrollbar-y="false" scrollbar-x="false">
+        <div class="list card">
+            <div class="item">
+                <div class="row" style="margin-left:22%">
+                    <div class="col col-50">
+                        <img ng-src="img/apptuter-logo.png" style="width:100%">
+                    </div>
+                </div>
+            </div>
+            <div class="item item-body">
+                <form name="registerForm" data-ng-submit="save(registerForm)" novalidate>
+                    <div class="list list-inset">
+                        <div id="fbpage" class="item item-input">
+                            <angucomplete-alt id="pages"
+                                              placeholder="facebook.com/"
+                                              pause="400"
+                                              selectedobject="fbPage"
+                                              remote-url={{searchUrl}}
+                                              remote-url-data-field="data"
+                                              title-field="name"
+                                              description-field="category"
+                                              image-field="picture.data.url"
+                                              input-class="item item-input autocomplete" />
+                        </div>
+
+                        <div class="item item-toggle">
+                            <span style="padding-left:16px">Push Notification</span>
+                            <label class="toggle toggle-positive">
+                                <input name="push" type="checkbox" checked data-ng-model="fSettings.push">
+                                <div class="track">
+                                    <div class="handle"></div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <button class="button button button-positive button-block icon-left ion-social-facebook-outline" style="padding-top:2%" type="submit">Save</button>
+                </form>
+            </div>
+        </div>
+        <div ng-click="openUrl()" class="bar bar-footer bar-positive" style="top:90%">
+            <div class="title">Powered by Egirna Technologies </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,54 @@
+﻿<ion-view title="About">
+    <ion-content has-bouncing="true" scrollbar-y="false" scrollbar-x="false" id="about">
+        <div class="list card">
+            <div class="item">
+                <h2 data-ng-bind="pageInfo.name" style="text-align:center;font-weight:bold;font-family:BreeSerif-Bold"></h2>
+            </div>
+            <div class="item item-body">
+                <img class="full-image" ng-src="{{pageInfo.cover.source}}">
+                <div class="item item-divider item-icon-left" data-ng-click="toggleDescription()" style="white-space:normal !important;margin-top:5%">
+                    <i class="icon" ng-class="isDescriptionShown ? 'ion-minus' : 'ion-plus'"></i>
+                    <h2 data-ng-bind="pageInfo.about | removeUrl"></h2>
+                </div>
+                <p data-ng-bind-html="pageInfo.description | linky" class="item-accordion" data-ng-show="isDescriptionShown">
+                </p>
+            </div>
+            <div class="item item-icon-left" data-ng-show="pageInfo.category">
+                <i class="icon ion-information-circled"></i>
+                <h2 data-ng-bind="pageInfo.category"></h2>
+            </div>
+            <div class="item item-icon-left" data-ng-show="pageInfo.likes">
+                <i class="icon ion-thumbsup"></i>
+                <h2 data-ng-bind="pageInfo.likes"></h2>
+            </div>
+        </div>
+    </ion-content>
+    <div class="tabs tabs-secondary tabs-positive tabs-icon-left">
+        <a class="tab-item" >
+            <i class="icon ion-android-call"></i>
+            Call Us
+        </a>
+        <a class="tab-item" >
+            <i class="icon ion-email"></i>
+            Email Us
+        </a>
+        <a class="tab-item">
+            <i class="icon ion-earth"></i>
+            Visit Us
+        </a>
+    </div>
+    <!--<div class="tabs tabs-secondary tabs-positive tabs-icon-left">
+        <a class="tab-item" data-ng-click="openUrl('tel:'+fSettings.tel,'_system')">
+            <i class="icon ion-android-call"></i>
+            Call Us
+        </a>
+        <a class="tab-item" data-ng-click="openUrl('mailto:'+fSettings.email,'_system')">
+            <i class="icon ion-email"></i>
+            Email Us
+        </a>
+        <a class="tab-item" data-ng-click="openUrl(pageInfo.website,'_system')">
+            <i class="icon ion-earth"></i>
+            Visit Us
+        </a>
+    </div>-->
+</ion-view>

@@ -1,0 +1,47 @@
+﻿@font-face {
+  font-family: 'robotoregular';
+  src: url("fonts/roboto_regular/Roboto-Regular-webfont.eot");
+  src: url("fonts/roboto_regular/Roboto-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/roboto_regular/Roboto-Regular-webfont.woff") format("woff"), url("fonts/roboto_regular/Roboto-Regular-webfont.ttf") format("truetype"), url("fonts/roboto_regular/Roboto-Regular-webfont.svg#robotoregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'robotobold';
+  src: url("fonts/roboto_bold/Roboto-Bold-webfont.eot");
+  src: url("fonts/roboto_bold/Roboto-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/roboto_bold/Roboto-Bold-webfont.woff") format("woff"), url("fonts/roboto_bold/Roboto-Bold-webfont.ttf") format("truetype"), url("fonts/roboto_bold/Roboto-Bold-webfont.svg#robotobold") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'BreeSerif-Bold';
+  src: url('fonts/beeserif/BreeSerif-Bold.otf') format('opentype'); }
+
+@font-face {
+  font-family: 'BreeSerif';
+  src: url('fonts/beeserif/BreeSerif.otf') format('opentype'); }
+
+@font-face {
+  font-family: 'BreeSerif-Thin';
+  src: url('fonts/beeserif/BreeSerif-Thin.otf') format('opentype'); }
+
+@font-face {
+  font-family: "JF Flat Regular";
+  src: url('fonts/JF-Flat-regular.eot');
+  src: url('fonts/JF-Flat-regular.eot?#iefix') format('embedded-opentype'), url('fonts/JF-Flat-regular.svg#JF Flat Regular') format('svg'), url('fonts/JF-Flat-regular.woff') format('woff'), url('fonts/JF-Flat-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal; }
+
+html, body, [ng-view], .ng-scope, [ui-view], .container {
+  height: 100%;
+  font-family: JF Flat Regular !important;
+  color: #fff !important; }
+
+button, input, select, textarea {
+  font-family: JF Flat Regular !important; }
+
+* {
+  padding: 0;
+  margin: 0; }
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }

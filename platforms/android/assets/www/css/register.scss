@@ -1,0 +1,79 @@
+@import 'app';
+ 
+.register{
+    width:100%;
+    height:100%;
+   overflow-y:hidden
+}
+.scroll{
+    height:100% !important;
+}
+.blur-background{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+     background-image:url(../img/blue_blur.png);
+     background-size:cover;
+     background-repeat:no-repeat;
+
+}
+#pages_value{
+border:0px !important
+}
+
+.css-filters{ 
+   max-height:100%;
+    -webkit-filter: blur(2px); 
+    filter: blur(2px);
+}
+.item{
+    background-color:transparent !important;
+    border-color:#fff !important;
+    color:#fff !important;
+}
+.list-inset{
+    margin-top:5px !important
+}
+.button-full{
+    margin-top:0px !important
+}
+.button-clear{
+    font-size:20px !important
+}
+.button.icon-left:before{
+    position:relative !important;
+    left:30% !important
+}
+.list-inset{
+    background-color:transparent !important
+}
+.item-select select{
+    direction:ltr;
+}
+input::-webkit-input-placeholder {
+  color: #fff ;
+}
+input:-moz-placeholder {
+  color: #fff ;
+}
+input:-ms-input-placeholder { /* IE10+ */
+  color: #fff ;
+}
+input{
+    color:#fff !important;
+}
+.input-label{
+    color:#fff
+}
+.item{
+    border-width:0px !important;
+    border-bottom:1px solid !important;
+}
+ .list-inset{
+     margin:20px 0px !important
+ }
+  .error{
+      border-bottom: 1px solid red !important;
+    }
