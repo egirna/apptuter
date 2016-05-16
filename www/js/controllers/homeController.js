@@ -43,38 +43,38 @@
         $scope.decodeImageUrl = function (post) {
             if (post.picture) {
                 var url = post.picture;
-
-                var url_dec = '';
-                if (post.object_id && post.type != "video") {
-                    $.ajax({
-                        type: "GET",
-                        url: $scope.baseUrl + post.object_id,
-                    }).done(function (response) {
-                        url_dec = response.source;
-                        var imgObj = $("[img-obj='" + response.id + "']");
+                if ($("[img-src='" + url + "']").find('img').attr('src').length==0) {  //to avois image refreshing when we scope changed
+                    var url_dec = '';
+                    if (post.object_id && post.type != "video") {
+                        $.ajax({
+                            type: "GET",
+                            url: $scope.baseUrl + post.object_id,
+                        }).done(function (response) {
+                            url_dec = response.source;
+                            var imgObj = $("[img-obj='" + response.id + "']");
+                            //Storing decoded Url in localStorage in case of offline browsing
+                            localStorage[post.object_id] = url_dec;
+                            //ToDO Using Image Caching Lib to Cache Images Up to 40 Images
+                            NativeBridge.useCachedFile(url_dec, response.id);
+                            // $(imgObj).find('img').attr('src', url_dec);
+                        }).error(function () {
+                            NativeBridge.useCachedFile(localStorage[post.object_id], post.object_id);
+                        })
+                    }
+                    else {
+                        var imgObj = $("[img-src='" + url + "']")
+                        if (url.indexOf('url=') > 0)
+                            url_dec = decodeURIComponent(url.substring(url.indexOf('url=') + 4));
+                        else
+                            url_dec = url.replace('_s', '_n');
                         //Storing decoded Url in localStorage in case of offline browsing
-                        localStorage[post.object_id] = url_dec;
-                        //ToDO Using Image Caching Lib to Cache Images Up to 40 Images
-                        NativeBridge.useCachedFile(url_dec, response.id);
-                        // $(imgObj).find('img').attr('src', url_dec);
-                    }).error(function () {
-                        NativeBridge.useCachedFile(localStorage[post.object_id], post.object_id);
-                    })
-                }
-                else {
-                    var imgObj = $("[img-src='" + url + "']")
-                    if (url.indexOf('url=') > 0)
-                        url_dec = decodeURIComponent(url.substring(url.indexOf('url=') + 4));
-                    else
-                        url_dec = url.replace('_s', '_n');
-                    //Storing decoded Url in localStorage in case of offline browsing
-                    localStorage[url] = url_dec;
-                    NativeBridge.useCachedFile(localStorage[url], null, url);
+                        localStorage[url] = url_dec;
+                        NativeBridge.useCachedFile(localStorage[url], null, url);
 
-                    //$(imgObj).find('img').attr('src', url_dec);
+                        //$(imgObj).find('img').attr('src', url_dec);
+                    }
                 }
             }
-
         }
         //Load More
         $scope.loadMore = function () {
@@ -175,7 +175,7 @@
                 else { //in case this page have no posts so clear localstorage & return back to register controller
                     localStorage.clear();
                     NativeBridge.alert("Sorry no posts found in this page, please try another page name", null, "Warning", "Ok")
-                    $location.path('/register');
+                    $location.path('/main/tabs/settings');
                     $scope.$apply();
                 }
             }
@@ -195,7 +195,7 @@
                 else { //in case this page have no posts so clear localstorage & return back to register controller
                     localStorage.clear();
                     NativeBridge.alert("Sorry no posts found in this page, please try another page name", null, "Warning", "Ok")
-                    $location.path('/register');
+                    $location.path('/main/tabs/settings');
                     $scope.$apply();
                 }
             }

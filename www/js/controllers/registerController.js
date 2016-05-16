@@ -95,7 +95,7 @@
                      if (data.id) {
                          $scope.saveSubscription().done(function () {
                              localStorage["fSettings"] = JSON.stringify($scope.fSettings);
-                             $location.path('/main/home');
+                             $location.path('/main');
                              $scope.$apply();
                          });
                         }

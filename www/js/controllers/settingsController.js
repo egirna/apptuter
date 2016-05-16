@@ -4,6 +4,7 @@
         $scope.openUrl = function () {
             NativeBridge.openUrl("http://www.egirna.com/", '_system', undefined);
         }
+        $rootScope.pageId = null;
         $scope.save = function (myForm) {
             if (myForm.$valid) {
                 $scope.showLoading();
