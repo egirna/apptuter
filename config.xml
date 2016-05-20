@@ -15,5 +15,6 @@
 	<preference name="android-minSdkVersion" value="19"/>
 	<preference name="AndroidPersistentFileLocation" value="Compatibility"/>
 
+
     <engine name="android" spec="~5.1.1" />
 </widget>
