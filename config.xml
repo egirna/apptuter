@@ -9,6 +9,11 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-   <preference name="SplashScreen" value="splash" />
-	<preference name="SplashScreenDelay" value="10000" />
+	
+    <preference name="SplashScreen" value="splash" />
+    <preference name="SplashScreenDelay" value="10000" />
+	<preference name="android-minSdkVersion" value="19"/>
+	<preference name="AndroidPersistentFileLocation" value="Compatibility"/>
+
+    <engine name="android" spec="~5.1.1" />
 </widget>
