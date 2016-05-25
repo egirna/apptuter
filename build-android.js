@@ -3,7 +3,7 @@
 var exec = require('child_process').execSync,
     child;
 
-child = exec('cordova build android',
+child = exec('sudo cordova build android',
     function (error, stdout, stderr) {
         if (error)
             throw error
