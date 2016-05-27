@@ -22,6 +22,9 @@
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.apptuter"
         },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.apptuter"
+        },
         "cordova-plugin-x-toast": {
             "PACKAGE_NAME": "com.apptuter"
         },
