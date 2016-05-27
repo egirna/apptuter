@@ -1,0 +1,13 @@
+{
+  "name": "Apptuter",
+  "version": "2.1.0",
+  "dependencies": {
+    "del": "^2.2.0",
+    "fs-extra": "^0.30.0"
+  },
+  "scripts": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
